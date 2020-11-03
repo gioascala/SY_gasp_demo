@@ -1,0 +1,16 @@
+<odoo>
+    <data>
+        <record id="object0" model="syenmaint.control_box">
+            <field name="sm_name">CB0001</field>
+            <field name="sm_stato">ATTIVO</field>
+            <field name="sm_denominazione">Control Box CB0001</field>
+            <field name="sm_rotabile">1</field>
+        </record>
+        <record id="object1" model="syenmaint.control_box">
+            <field name="sm_name">CB0002</field>
+            <field name="sm_stato">ATTIVO</field>
+            <field name="sm_denominazione">Control Box CB0002</field>
+            <field name="sm_rotabile">1</field>
+        </record>
+    </data>
+</odoo>

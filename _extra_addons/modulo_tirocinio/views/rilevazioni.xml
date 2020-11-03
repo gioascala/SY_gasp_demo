@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+   <record model="ir.ui.view" id="rilevazioni_tree"> 
+        <field name="name">Rilevazioni.tree</field>
+        <field name="model">rilevazione</field>
+        <field name="arch" type="xml">
+          <tree string="Rilevazioni tree"  edit="false" create="false" >
+            <field name="id_rilevazione"/>
+            <field name="timestamp"/>
+            <field name="id_edificio"/>
+            </tree>
+        </field>
+      </record>
+
+    <record model="ir.ui.view" id="rilevazioni_form">
+            <field name="name">Rilevazioni.form</field>
+            <field name="model">rilevazione</field>
+            <field name="arch" type="xml">
+                <form string="Rilevazioni Form"  edit="false" create="false" >
+                    <sheet>
+                            <h1>
+                            <field name="id_edificio"/>
+                            </h1>
+                            <group>
+                            <field name="timestamp"/>
+                            <field name="id_rilevazione" />
+                            </group>
+                       
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+    <record model="ir.actions.act_window" id="action_rilevazione">
+            <field name="name">Rilevazioni</field>
+            <field name="res_model">rilevazione</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    <menuitem name="Rilevazioni" id="rilevazione"  sequence="3" parent="edificio_root"  action="action_rilevazione" />
+  
+</odoo>

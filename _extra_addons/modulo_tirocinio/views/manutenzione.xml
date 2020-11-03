@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+
+    <record id="manutenzione_graph" model="ir.ui.view">
+        <field name="model">manutenzione</field>
+        <field name="arch" type="xml">
+            <graph string="Grafico manutenzioni" type="bar">
+                <field name="data_manutenzione" type="row" interval="day"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="manutenzione_pivot" model="ir.ui.view">
+        <field name="model">manutenzione</field>
+        <field name="arch" type="xml">
+            <pivot string="Manutenzioni">
+                <field name="tipo" type="col"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="manutenzione_tree">
+        <field name="name">Manutenzione.tree</field>
+        <field name="model">manutenzione</field>
+        <field name="arch" type="xml">
+            <tree string="Manutenzione Tree">
+                <field name="id_edificio"/>
+                <field name="data_manutenzione"/>
+                <field name="tipo"/>
+                <field name="persone"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="manutenzione_form">
+        <field name="name">Manutenzione.form</field>
+        <field name="model">manutenzione</field>
+        <field name="arch" type="xml">
+            <form string="Manutenzione Form">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="id_edificio"/>
+                        </group>
+                        <group>
+                            <field name="data_manutenzione" options="{'datepicker': { 'minDate': { 'd' : 0 } } } "/>
+                        </group>
+                        <group>
+                            <field name="tipo"/>
+                            <field name="descrizione_intervento"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="persone" widget="one2many" force_save="1">
+                            <tree string="Addetti" editable="bottom">
+                                <field name="syl4_addetto" string="Addetto"/>
+                                <field name="syl4_ore" string="Ore"/>
+                            </tree>
+                        </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="manutenazione_calendar" model="ir.ui.view">
+        <field name="model">manutenzione</field>
+        <field name="arch" type="xml">
+            <calendar date_start="data_manutenzione" mode="month">
+                <field name="id_edificio" />
+            </calendar>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_manutenzione">
+        <field name="name">Manutenzione</field>
+        <field name="res_model">manutenzione</field>
+        <field name="view_mode">tree,form,calendar</field>
+    </record>
+
+
+    <menuitem name="Manutenzione" id="manutenzione"  sequence="1" parent="edificio_root"  action="action_manutenzione" />
+
+
+
+</odoo>

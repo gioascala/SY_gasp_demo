@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+   <record model="ir.ui.view" id="aree_di_parcheggio_tree">
+        <field name="name">Aree_di_parcheggio.tree</field>
+        <field name="model">aree_di_parcheggio</field>
+        <field name="arch" type="xml">
+          <tree string="Aree di parcheggio tree">
+            <field name="unità_tecnologica"/>
+            <field name="elemento_tecnico"/>
+            </tree>
+        </field>
+      </record>
+
+    <record model="ir.ui.view" id="aree_di_parcheggio_form">
+            <field name="name">Aree_di_parcheggio.form</field>
+            <field name="model">aree_di_parcheggio</field>
+            <field name="arch" type="xml">
+                <form string="Aree di parcheggio  Form">
+                    <sheet>
+                        <group>
+                            <field name="unità_tecnologica"/>
+                        </group>
+                        <group>
+                            <field name="elemento_tecnico"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+</odoo>

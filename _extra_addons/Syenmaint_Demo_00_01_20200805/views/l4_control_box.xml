@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- vista delle controlbox -->
+        <record model="ir.ui.view" id="control_box_tree_view">
+            <field name="name">L4.Control_Box.tree</field>
+            <field name="model">syenmaint.l4_control_box</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="l4sm_codice"/>
+                    <field name="l4sm_descr"/>
+                    <field name="l4sm_product_id"/>
+                </tree>
+            </field>
+        </record>
+        <!-- form view per la creazione/modifica della control_box -->
+        <record model="ir.ui.view" id="control_box_form_view">
+            <field name="name">L4.Control_Box.form</field>
+            <field name="model">syenmaint.l4_control_box</field>
+            <field name="arch" type="xml">
+                <form string="Control Box Form">
+                    <sheet>
+                        <group>
+                            <field name="l4sm_codice"/>
+                            <field name="l4sm_descr"/>
+                            <field name="l4sm_product_id"/>
+                            <field name="l4sm_img"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- action che richiama la funzione del menu -->
+        <record id="l4_control_box_action" model="ir.actions.act_window">
+            <field name="name">Lista delle Control Box</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">syenmaint.l4_control_box</field>
+            <field name="domain">[]</field> <!-- force empty -->
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                Crea una control Box
+              </p><p>
+                Le control box permettono di ricevere i dati dalle sensor box installate sugli assiemi
+                per poi inviarli al Layer 4 della SYENMAINT PLATFORM.
+              </p>
+            </field>
+        </record>
+        <menuitem id="menu_l4_control_box"
+            action="l4_control_box_action"
+            parent="menu_l4_anagrafiche"
+            sequence="1"/>
+    </data>
+</odoo>

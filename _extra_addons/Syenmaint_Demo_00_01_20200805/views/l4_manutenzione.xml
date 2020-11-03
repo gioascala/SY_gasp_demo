@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- vista delle manutenzioni tabella -->
+        <record model="ir.ui.view" id="manutenzione_tree_view1">
+            <field name="name">L4.manutenzione.tree.1</field>
+            <field name="model">syenmaint.l4_manutenzione</field>
+            <field name="arch" type="xml">
+                <tree default_order='create_date desc'
+                    decoration-warning="l4sm_stato=='i'"
+                    decoration-success="l4sm_stato=='e'"
+                    decoration-danger="l4sm_stato=='p'"
+                    decoration-info="l4sm_stato=='v'">
+                    <field name="l4sm_codice"/>
+                    <field name="l4sm_tipo_manutenzione_id"/>
+                    <field name="l4sm_control_box_id"/>
+                    <field name="l4sm_stato"/>
+                    <field name="l4sm_op_id"/>
+                    <field name="l4sm_piano_creato"/>
+                    <field name="l4sm_data_fabbisogno"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- vista delle manutenzioni tabella -->
+        <record id="manutenzione_kanban" model="ir.ui.view">
+            <field name="name">L4.manutenzione.kanban</field>
+            <field name="model">syenmaint.l4_manutenzione</field>
+            <field name="arch" type="xml">
+                <kanban class="o_kanban_mobile">
+                    <field name="l4sm_codice"/>
+                    <field name="l4sm_tipo_manutenzione_id"/>
+                    <field name="l4sm_data_fabbisogno"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_card oe_kanban_global_click">
+                                <div class="o_kanban_record_top">
+                                    <div class="o_kanban_record_headings mt4">
+                                        <strong class="o_kanban_record_title">
+                                            <span><t t-esc="record.l4sm_codice.value"/></span>
+                                        </strong>
+                                    </div>
+                                </div>
+                                <div class="o_kanban_record_bottom">
+                                    <span class="">
+                                        <field name="l4sm_tipo_manutenzione_id"/>
+                                    </span>
+                                </div>
+                                <span>Previsto </span>
+                                <div name="state" class="o_field_widget badge badge-primary">
+                                    <field name="l4sm_data_fabbisogno"/>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <!-- vista calendario -->
+        <record id="manutenzione_calendar_view" model="ir.ui.view">
+            <field name="name">L4.manutenzione.calendar</field>
+            <field name="model">syenmaint.l4_manutenzione</field>
+            <field eval="2" name="priority"/>
+            <field name="arch" type="xml">
+                <calendar date_start="l4sm_data_fabbisogno" string="Ordini di Manutenzione" color="l4sm_stato">
+                    <field name="l4sm_codice"/>
+                    <field name="l4sm_tipo_manutenzione_id"/>
+                    <field name="l4sm_stato"/>
+                </calendar>
+            </field>
+        </record>
+        <!-- form view per la creazione/modifica della manutenzione -->
+        <!-- in questa sezione si possono anche associare le misure relative con i rispettivi valori -->
+        <record model="ir.ui.view" id="manutenzione_form_view">
+            <field name="name">L4.Manutenzione.form</field>
+            <field name="model">syenmaint.l4_manutenzione</field>
+            <field name="arch" type="xml">
+                <form string="Manutenzione Form">
+                    <header>
+                        <button name="pianifica_manutenzione_wiz" attrs="{'invisible': [('l4sm_piano_creato', '=', True)]}" string="Genera Piano di Manutenzione Wizard" type="object" class="oe_highlight"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="l4sm_codice"/>
+                            <field name="l4sm_tipo_manutenzione_id"/>
+                            <field name="l4sm_control_box_id"/>
+                            <field name="l4sm_stato"/>
+                            <field name="l4sm_data_fabbisogno"/>
+                            <field name="l4sm_op_id"/>
+                            <field name="l4sm_log_manutenzione"/>
+                            <field name="l4sm_day_cyc"/>
+                            <field name="l4sm_num_cyc"/>
+                            <field name="l4sm_piano_creato"/>
+                        </group>
+                        <notebook>
+                            <page string="Misure associate alla Manutenzione">
+                                <field name="l4sm_misure_manutenzione_ids">
+                                    <tree>
+                                        <field name="l4sm_misure_id"/>
+                                        <field name="l4sm_valore"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- action che richiama la funzione del menu -->
+        <record id="l4_manutenzione_action" model="ir.actions.act_window">
+            <field name="name">Lista delle Manutenzioni</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">syenmaint.l4_manutenzione</field>
+            <field name="domain">[]</field> <!-- force empty -->
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form,calendar,kanban</field>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                Crea una Manutenzione
+              </p><p>
+                Le manutenzione rappresentano gli eventi manutentivi generati dalle Control Box.
+                Questi record, una volta validati, permettono la generazione automatica degli ordini
+                di manutenzione.
+              </p>
+            </field>
+        </record>
+        <menuitem id="menu_l4_manutenzione"
+            action="l4_manutenzione_action"
+            parent="menu_l4_manutenzioni"
+            sequence="1"/>
+
+        <!-- opzione convalida per la convalida dell'evento e la creazione degli OP -->
+        <record model="ir.actions.server" id="syenmaint_l4_convalida">
+            <field name="name">Convalida</field>
+            <field name="model_id" ref="model_syenmaint_l4_manutenzione"/>
+            <field name ="binding_model_id" ref="model_syenmaint_l4_manutenzione"/>
+            <field name="state">code</field>
+            <field name="code">
+                records.convalida()
+            </field>
+        </record>
+
+        <!-- opzione scarta per scartare l'evento -->
+        <record model="ir.actions.server" id="syenmaint_l4_scartata">
+            <field name="name">Scartata</field>
+            <field name="model_id" ref="model_syenmaint_l4_manutenzione"/>
+            <field name ="binding_model_id" ref="model_syenmaint_l4_manutenzione"/>
+            <field name="state">code</field>
+            <field name="code">
+                records.scartata()
+            </field>
+        </record>
+
+        <!-- opzione che smarca come verificata un'azione manutentiva -->
+        <record model="ir.actions.server" id="syenmaint_l4_verificata">
+            <field name="name">Verificata</field>
+            <field name="model_id" ref="model_syenmaint_l4_manutenzione"/>
+            <field name ="binding_model_id" ref="model_syenmaint_l4_manutenzione"/>
+            <field name="state">code</field>
+            <field name="code">
+                records.verificata()
+            </field>
+        </record>
+    </data>
+</odoo>

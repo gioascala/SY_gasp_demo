@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Sequences for syenmaint.l4_manutenzione -->
+        <record id="sequence_syenmaint_l4_manutenzione" model="ir.sequence">
+           <field name="name">Manutenzione</field>
+           <field name="code">syenmaint.l4_manutenzione</field>
+           <field name="active">TRUE</field>
+           <field name="prefix">MAN/L4/SM/</field>
+           <field name="padding">6</field>
+           <field name="number_next">1</field>
+           <field name="number_increment">1</field>
+        </record>
+
+        <!-- Sequences for syenmaint.l4_task_manutenzione -->
+        <record id="sequence_syenmaint_l4_task_manutenzione" model="ir.sequence">
+           <field name="name">Task Manutenzione</field>
+           <field name="code">syenmaint.l4_task_manutenzione</field>
+           <field name="active">TRUE</field>
+           <field name="prefix">TASK/L4/SM/</field>
+           <field name="padding">6</field>
+           <field name="number_next">1</field>
+           <field name="number_increment">1</field>
+        </record>
+
+        <!-- Sequenza per DIPENDENTI -->
+        <record id="sequence_syenmaint_l4_rdm_anagrafica_personale" model="ir.sequence">
+           <field name="name">Dipendenti</field>
+           <field name="code">l4_rdm_anagrafica_personale_codice</field>
+           <field name="active">TRUE</field>
+           <field name="prefix">L4/DIP/</field>
+           <field name="padding">6</field>
+           <field name="number_next">1</field>
+           <field name="number_increment">1</field>
+        </record>
+    </data>
+</odoo>

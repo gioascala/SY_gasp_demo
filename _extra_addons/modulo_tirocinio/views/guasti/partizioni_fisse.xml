@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+   <record model="ir.ui.view" id="g_partizioni_fisse_tree">
+        <field name="name">g_partizioni_fisse.tree</field>
+        <field name="model">g_partizioni_fisse</field>
+        <field name="arch" type="xml">
+          <tree string="Guasti  partizioni fisse tree">
+                <field name="elemento_tecnico"/>
+                <field name="tipo_di_guasto"/>
+                <field name="possibili_cause" />
+                <field name="segnali_deboli"/>
+            </tree>
+        </field>
+      </record>
+
+    <record model="ir.ui.view" id="g_partizioni_fisse_form">
+            <field name="name">g_partizioni_fisse.form</field>
+            <field name="model">g_partizioni_fisse</field>
+            <field name="arch" type="xml">
+                <form string="Guasti partizioni fisse Form">
+                    <sheet>
+                            <group>
+                             <field name="elemento_tecnico"/>
+                            </group>
+                            <group>
+                                <field name="tipo_di_guasto"/>
+                            </group>
+                            <group>
+                                <field name="possibili_cause" />
+                            </group>
+                            <group>
+                                <field name="segnali_deboli"/>
+                            </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+</odoo>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- vista delle misure -->
+        <record model="ir.ui.view" id="misure_tree_view">
+            <field name="name">L4.misure.tree</field>
+            <field name="model">syenmaint.l4_misure</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="l4sm_codice"/>
+                    <field name="l4sm_descr"/>
+                    <field name="l4sm_tipo"/>
+                    <field name="l4sm_uom_id"/>
+                </tree>
+            </field>
+        </record>
+        <!-- form view per la creazione/modifica delle misure -->
+        <record model="ir.ui.view" id="misure_form_view">
+            <field name="name">L4.misure.form</field>
+            <field name="model">syenmaint.l4_misure</field>
+            <field name="arch" type="xml">
+                <form string="Misure Form">
+                    <sheet>
+                        <group>
+                            <field name="l4sm_codice"/>
+                            <field name="l4sm_descr"/>
+                            <field name="l4sm_tipo"/>
+                            <field name="l4sm_uom_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- action che richiama la funzione del menu -->
+        <record id="l4_misure_action" model="ir.actions.act_window">
+            <field name="name">Lista delle Misure</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">syenmaint.l4_misure</field>
+            <field name="domain">[]</field> <!-- force empty -->
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                Crea una Misura
+              </p><p>
+                Le misure sono proprietà misurate su asset specifici in condizioni specifiche di lavoro.
+                Per ogni asset può essere necessario tenere traccia di determinati parametri come: velocità,
+                posizione, temperatura, ecc.
+              </p>
+            </field>
+        </record>
+        <menuitem id="menu_l4_misure"
+            action="l4_misure_action"
+            parent="menu_l4_anagrafiche"
+            sequence="6"/>
+    </data>
+</odoo>

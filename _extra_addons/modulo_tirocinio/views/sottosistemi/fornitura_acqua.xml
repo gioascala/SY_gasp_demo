@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+   <record model="ir.ui.view" id="fornitura_e_distribuzione_acqua_tree">
+        <field name="name">fornitura_e_distribuzione_acqua.tree</field>
+        <field name="model">fornitura_e_distribuzione_acqua</field>
+        <field name="arch" type="xml">
+          <tree string="Fornitura e distribuzione dell'acqua tree">
+            <field name="unità_tecnologica"/>
+            <field name="elemento_tecnico"/>
+            </tree>
+        </field>
+      </record>
+
+    <record model="ir.ui.view" id="fornitura_e_distribuzione_acqua_form">
+            <field name="name">fornitura_e_distribuzione_acqua.form</field>
+            <field name="model">fornitura_e_distribuzione_acqua</field>
+            <field name="arch" type="xml">
+                <form string="Fornitura e distribuzione Form">
+                    <sheet>
+                        <group>
+                            <field name="unità_tecnologica"/>
+                        </group>
+                        <group>
+                            <field name="elemento_tecnico"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+</odoo>

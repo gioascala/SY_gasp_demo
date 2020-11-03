@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+<!--        <record id="start_server_streaming_action" model="ir.actions.server">-->
+<!--            <field name="name">Start Server</field>-->
+<!--            <field name="condition">True</field>-->
+<!--            <field name="type">ir.actions.server</field>-->
+<!--            <field name="model_id" ref="model_syenmaint_l4_live_streaming" />-->
+<!--            <field name="state">code</field>-->
+<!--            <field name="code">self.start_server()</field>-->
+<!--        </record>-->
+
+        <!-- L4 - menu principale applicazione -->
+        <menuitem sequence="-1"
+                  name="SYPLA BUILD"
+                  id="menu_l4_root"
+                  web_icon="Syenmaint_Demo_00_01_20200805,static/description/icon.png" />
+
+        <menuitem id="menu_l4_dati_principali"
+                  name="Dati Principali"
+                  parent="menu_l4_root"
+                  sequence="10"/>
+
+        <menuitem id="menu_l4_anagrafiche"
+                  name="Anagrafiche"
+                  parent="menu_l4_dati_principali"
+                  sequence="10"/>
+
+        <menuitem id="menu_l4_collegamenti"
+                  name="Collegamenti"
+                  parent="menu_l4_dati_principali"
+                  sequence="20"/>
+
+        <menuitem id="menu_l4_manutenzioni"
+                  name="Manutenzioni"
+                  parent="menu_l4_root"
+                  sequence="10"/>
+
+        <menuitem id="menu_l4_cayman_l3_parent"
+                  name="Cayman"
+                  parent="menu_l4_root"
+                  sequence="10"/>
+
+        <menuitem id="main_openacademy_menu"
+                  name="Video Streaming"
+                  parent="menu_l4_root"
+                  sequence="10"/>
+
+    </data>
+</odoo>

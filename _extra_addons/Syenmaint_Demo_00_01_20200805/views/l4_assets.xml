@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- vista degli assets -->
+        <record model="ir.ui.view" id="assets_tree_view">
+            <field name="name">L4.assets.tree</field>
+            <field name="model">syenmaint.l4_assets</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="l4sm_codice"/>
+                    <field name="l4sm_descr"/>
+                    <field name="l4sm_img"/>
+                    <field name="l4_product_id"/>
+                </tree>
+            </field>
+        </record>
+        <!-- form view per la creazione/modifica degli assets -->
+        <record model="ir.ui.view" id="assets_form_view">
+            <field name="name">L4.assets.form</field>
+            <field name="model">syenmaint.l4_assets</field>
+            <field name="arch" type="xml">
+                <form string="Assets Form">
+                    <sheet>
+                        <group>
+                            <field name="l4sm_codice"/>
+                            <field name="l4sm_descr"/>
+                            <field name="l4sm_img"/>
+                            <field name="l4_product_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- action che richiama la funzione del menu -->
+        <record id="l4_assets_action" model="ir.actions.act_window">
+            <field name="name">Lista degli Assets</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">syenmaint.l4_assets</field>
+            <field name="domain">[]</field> <!-- force empty -->
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                Crea un Asset
+              </p><p>
+                Gli assets sono le parti degli assiemi sulle quali sono installate le sensor box, a loro volta
+                collegate alle control box: ASSIEME -> ASSET -> SENSOR BOX -> CONTROL BOX
+              </p>
+            </field>
+        </record>
+
+        <menuitem id="menu_l4_assets"
+            action="l4_assets_action"
+            parent="menu_l4_anagrafiche"
+            sequence="3"/>
+    </data>
+</odoo>

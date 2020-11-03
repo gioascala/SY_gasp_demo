@@ -1,0 +1,105 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* login_user_detail
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0-20200922\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-09-30 08:07+0000\n"
+"PO-Revision-Date: 2020-09-30 08:07+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: Italian"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.7\n"
+
+#. module: login_user_detail
+#: model:ir.model.fields,field_description:login_user_detail.field_login_detail__create_uid
+msgid "Created by"
+msgstr "Creato da"
+
+#. module: login_user_detail
+#: model:ir.model.fields,field_description:login_user_detail.field_login_detail__create_date
+msgid "Created on"
+msgstr "Creato"
+
+#. module: login_user_detail
+#: model_terms:ir.ui.view,arch_db:login_user_detail.report_syenmaint_request
+msgid "Data"
+msgstr "Data"
+
+#. module: login_user_detail
+#: model:ir.model.fields,field_description:login_user_detail.field_login_detail__display_name
+msgid "Display Name"
+msgstr "Nome Visualizzato"
+
+#. module: login_user_detail
+#: model:ir.model.fields,field_description:login_user_detail.field_login_detail__id
+msgid "ID"
+msgstr ""
+
+#. module: login_user_detail
+#: model:ir.model.fields,field_description:login_user_detail.field_login_detail__ip_address
+msgid "IP Address"
+msgstr "Indirizzo IP"
+
+#. module: login_user_detail
+#: model:ir.model.fields,field_description:login_user_detail.field_login_detail____last_update
+msgid "Last Modified on"
+msgstr "Ultima modifica in data"
+
+#. module: login_user_detail
+#: model:ir.model.fields,field_description:login_user_detail.field_login_detail__write_uid
+msgid "Last Updated by"
+msgstr "Ultimo aggiornamento di"
+
+#. module: login_user_detail
+#: model:ir.model.fields,field_description:login_user_detail.field_login_detail__write_date
+msgid "Last Updated on"
+msgstr "Ultimo aggiornamento di"
+
+#. module: login_user_detail
+#: model:ir.model.fields,field_description:login_user_detail.field_login_detail__date_time
+msgid "Login Date And Time"
+msgstr "Data e Ora del Login"
+
+#. module: login_user_detail
+#: model:ir.ui.menu,name:login_user_detail.login_user_detail_main_menu
+#: model:ir.ui.menu,name:login_user_detail.menu_1_list
+msgid "Login Details"
+msgstr "Dettagli Login"
+
+#. module: login_user_detail
+#: model:ir.actions.act_window,name:login_user_detail.login_user_detail_action_window
+msgid "Login User Details"
+msgstr "Dettagli utente di accesso"
+
+#. module: login_user_detail
+#: model_terms:ir.ui.view,arch_db:login_user_detail.report_syenmaint_request
+msgid "Nome"
+msgstr ""
+
+#. module: login_user_detail
+#: model:ir.actions.report,name:login_user_detail.report_syenmaint_declare
+msgid "Stampa pdf"
+msgstr "Stampa PDF"
+
+#. module: login_user_detail
+#: model:ir.model.fields,field_description:login_user_detail.field_login_detail__name
+msgid "User Name"
+msgstr "Nome Utente"
+
+#. module: login_user_detail
+#: model:ir.model,name:login_user_detail.model_res_users
+msgid "Users"
+msgstr "Utenti"
+
+#. module: login_user_detail
+#: model:ir.model,name:login_user_detail.model_login_detail
+msgid "login.detail"
+msgstr "Dettagli login"
+

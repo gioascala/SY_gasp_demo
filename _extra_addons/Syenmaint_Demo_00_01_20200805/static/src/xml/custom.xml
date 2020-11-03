@@ -1,0 +1,8 @@
+<templates id="template" xml:space="preserve">
+
+<t t-extend="Login" >
+     <t t-jquery=".oe_login" t-operation="replace">
+            Custom code for Login Page
+     </t>
+</t>
+</templates>

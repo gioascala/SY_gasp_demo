@@ -1,0 +1,34 @@
+<odoo>
+    <data>
+        <!-- vista delle tipologie -->
+        <record model="ir.ui.view" id="dpi_tree_view">
+            <field name="name">Syenmaint list</field>
+            <field name="model">syenmaint.dpi</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="sm_name"/>
+                    <field name="sm_caratteristiche"/>
+                    <field name="sm_categoria"/>
+                    <field name="sm_immagine"/>
+                    <field name="sm_tipologia"/>
+                    <field name="sm_frequenza"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- azione che mostra la vista dei dispositivi -->
+        <record model="ir.actions.act_window" id="dpi_list_action">
+            <field name="name">Syenmaint window</field>
+            <field name="res_model">syenmaint.dpi</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!--<menuitem name="Dispositivi di Protezione Individuali" id="syenmaint.dpi" parent="syenmaint.anagrafiche"
+                  action="dpi_list_action"/>-->
+
+        <!-- menu di primo livello
+        <menuitem name="Produzione" id="syenmaint.produzione" parent="syenmaint.menu_root"
+                  action="produzione_list_action"/>-->
+
+    </data>
+</odoo>

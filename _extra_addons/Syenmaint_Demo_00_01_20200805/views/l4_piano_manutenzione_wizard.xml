@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="piano_manutenzione_wizard_form_view" model="ir.ui.view">
+        <field name="name">L4.Piano.Manutenzione.Wizard.form</field>
+        <field name="model">syenmaint.l4_piano_manutenzione_wizard</field>
+        <field name="arch" type="xml">
+            <form string="Piano di Manutenzione Wizard">
+                <group>
+                    <field name="man_id"/>
+                    <field name="l4sm_day_cyc"/>
+                    <field name="l4sm_num_cyc"/>
+                </group>
+                <footer>
+                    <button name="action_validate" string="Done" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

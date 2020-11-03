@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- vista delle relazioni tra un asset ed un'assieme -->
+        <record model="ir.ui.view" id="control_box_assets_tree_view">
+            <field name="name">L4.assets_assiemi.tree</field>
+            <field name="model">syenmaint.l4_assets_assiemi</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="l4sm_asset"/>
+                    <field name="l4sm_assieme"/>
+                </tree>
+            </field>
+        </record>
+        <!-- form view per la creazione/modifica della relazione tra asset ed assieme -->
+        <record model="ir.ui.view" id="assets_assieme_form_view">
+            <field name="name">L4.assets_assiemi.form</field>
+            <field name="model">syenmaint.l4_assets_assiemi</field>
+            <field name="arch" type="xml">
+                <form string="Assets - Assiemi Form">
+                    <sheet>
+                        <group>
+                            <field name="l4sm_asset"/>
+                            <field name="l4sm_assieme"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- action che richiama la funzione del menu -->
+        <record id="l4_assets_assiemi_action" model="ir.actions.act_window">
+            <field name="name">Lista delle relazioni Assets - Assiemi</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">syenmaint.l4_assets_assiemi</field>
+            <field name="domain">[]</field> <!-- force empty -->
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                Crea una relazione tra gli assets e gli assiemi
+              </p><p>
+                Questa relazione serve a definire il rapporto tra ASSIENI -> ASSETS -> SENSORBOX -> CONTROLBOX.
+              </p>
+            </field>
+        </record>
+        <menuitem id="menu_l4_assets_assiemi"
+            action="l4_assets_assiemi_action"
+            parent="menu_l4_collegamenti"
+            sequence="6"/>
+    </data>
+</odoo>

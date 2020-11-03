@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+   <record model="ir.ui.view" id="g_infissi_esterni_tree">
+        <field name="name">g_infissi_esterni.tree</field>
+        <field name="model">g_infissi_esterni</field>
+        <field name="arch" type="xml">
+          <tree string="Guasti  infissi esterni tree">
+                <field name="elemento_tecnico"/>
+                <field name="tipo_di_guasto"/>
+                <field name="possibili_cause" />
+                <field name="segnali_deboli"/>
+            </tree>
+        </field>
+      </record>
+
+    <record model="ir.ui.view" id="g_infissi_esterni_form">
+            <field name="name">g_infissi_esterni.form</field>
+            <field name="model">g_infissi_esterni</field>
+            <field name="arch" type="xml">
+                <form string="Guasti infissi esterni Form">
+                    <sheet>
+                            <group>
+                             <field name="elemento_tecnico"/>
+                            </group>
+                            <group>
+                                <field name="tipo_di_guasto"/>
+                            </group>
+                            <group>
+                                <field name="possibili_cause" />
+                            </group>
+                            <group>
+                                <field name="segnali_deboli"/>
+                            </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+</odoo>

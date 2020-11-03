@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <record id="action_report_fornitore" model="ir.actions.act_window">
+        <field name="name">Report Fornitori</field>
+        <field name="res_model">prodotti_in_ingresso</field>
+        <field name="view_mode">graph</field>
+        <field name="context">{"search_default_group_by_fornitore":1}</field>
+        </record>
+
+       <record model="ir.ui.view" id="report_search_fornitore">
+            <field name="name">Report_fornitori.search</field>
+            <field name="model">prodotti_in_ingresso</field>
+            <field name="arch" type="xml">
+                <search string="Fornitore">
+                <filter name="group_by_fornitore" string="Fornitori" context = "{'group_by': 'fornitore' }"/>
+            </search>
+            </field>
+       </record>
+
+    <menuitem name="Report fornitori" id="report_prodotti_fornitori"  parent="controllo_qualità_root" action="action_report_fornitore" sequence="6" />
+
+</odoo>

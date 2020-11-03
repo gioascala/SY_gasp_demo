@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- vista delle relazioni tra una controlbox ed un asset -->
+        <record model="ir.ui.view" id="control_box_assets_tree_view">
+            <field name="name">L4.control_box_assets.tree</field>
+            <field name="model">syenmaint.l4_control_box_assets</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="l4sm_control_box_id"/>
+                    <field name="l4sm_asset_id"/>
+                </tree>
+            </field>
+        </record>
+        <!-- form view per la creazione/modifica della relazione tra control_box ed asset -->
+        <record model="ir.ui.view" id="control_box_assets_form_view">
+            <field name="name">L4.control_box_assets.form</field>
+            <field name="model">syenmaint.l4_control_box_assets</field>
+            <field name="arch" type="xml">
+                <form string="Control Box - Assets Form">
+                    <sheet>
+                        <group>
+                            <field name="l4sm_control_box_id"/>
+                            <field name="l4sm_asset_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- action che richiama la funzione del menu -->
+        <record id="l4_control_box_assets_action" model="ir.actions.act_window">
+            <field name="name">Lista delle relazioni Control Box - Assets</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">syenmaint.l4_control_box_assets</field>
+            <field name="domain">[]</field> <!-- force empty -->
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                Crea una relazione tra le control box e gli assets
+              </p><p>
+                Questa relazione serve a definire il rapporto tra ASSIENI -> ASSETS -> SENSORBOX -> CONTROLBOX.
+              </p>
+            </field>
+        </record>
+
+        <menuitem id="menu_l4_control_box_assets"
+            action="l4_control_box_assets_action"
+            parent="menu_l4_collegamenti"
+            sequence="4"/>
+    </data>
+</odoo>

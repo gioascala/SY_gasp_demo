@@ -1,0 +1,10 @@
+<record id="routing_operations_file_form_view" model="ir.ui.view">
+        	<field name="name">Ciclo Lavoro Custom</field>
+        	<field name="model">mrp.workorder</field>
+        	<field name="inherit_id" ref="mrp.mrp_production_workorder_form_view_inherit"/>
+        	<field name="arch" type="xml">
+            	<field name="confirmation_date" position="after">
+                		<field name="additional_note"/>
+            	</field>
+        	</field>
+</record>

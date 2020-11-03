@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- vista degli file -->
+        <record model="ir.ui.view" id="log_container_file_tree_view">
+            <field name="name">L4.log_container_file.tree</field>
+            <field name="model">syenmaint.l4_log_container_file</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="l4sm_path_file"/>
+                    <field name="l4sm_descr"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- form view per la visualizzazione dei file -->
+        <record model="ir.ui.view" id="log_container_file_form_view">
+            <field name="name">L4.log_container_file.form</field>
+            <field name="model">syenmaint.l4_log_container_file</field>
+            <field name="arch" type="xml">
+                <form string="Assets Form">
+                    <header>
+                        <button name="carica_log" string="Carica file Log" type="object" class="oe_highlight"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="l4sm_path"/>
+                            <field name="l4sm_path_file"/>
+                            <field name="l4sm_descr"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- action che richiama la funzione del menu -->
+        <record id="l4_log_container_file_action" model="ir.actions.act_window">
+            <field name="name">Lista dei file Log</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">syenmaint.l4_log_container_file</field>
+            <field name="domain">[]</field> <!-- force empty -->
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="menu_l4_log_container_file"
+            action="l4_log_container_file_action"
+            parent="menu_l4_anagrafiche"
+            sequence="2"/>
+    </data>
+</odoo>

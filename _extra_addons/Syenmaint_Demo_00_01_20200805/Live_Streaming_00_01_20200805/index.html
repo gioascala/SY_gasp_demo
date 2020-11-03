@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Realtime communication with WebRTC</title>
+  <link rel="stylesheet" href="/css/main.css" />
+  <script>
+    function setVideoScreenSize(){
+      console.log("Screen width",screen.width);
+      document.getElementById('video-remote').style.width = screen.width;
+      document.getElementById('video-remote').style.height = screen.height;
+    }
+  </script>
+</head>
+
+<body onload="setVideoScreenSize();" >
+
+  <button  style="display: none;" id='flip-button' class="button">FLIP</button>
+
+  <div class="video-container" id="video-container">
+    <video class="video-remote" id="video-remote" autoplay > </video>
+    <video class="video-local" id="video-local" autoplay muted></video>
+  </div>   
+
+  <div class="div"> 
+    <button id="chiudi" class="chiudi" style="left: 60%;">Chiudi</button>
+    <button id="record" class="button" >Registra</button>
+    <button id="download" class="button" style="bottom: 13%;" disabled>Download</button>
+    <button id="novideo" class="button" style="left: 50%;">Video</button>
+    <button id="noaudio" class="button" style="left: 40%;">Audio</button>
+  </div>
+
+<div>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/record.js"></script> 
+</div>
+</body>
+
+</html>

@@ -1,0 +1,325 @@
+<odoo>
+
+    <record model="ir.ui.view" id="edificioCron_tree_view">
+        <field name="model">edificio.cronologia</field>
+        <field name="arch" type="xml">
+            <tree> 
+                <field name="name"/>
+                
+            </tree>
+        </field>
+    </record>
+
+
+
+    <record model="ir.ui.view" id="edificioEd_tree_view">
+        <field name="name">edificio.tree</field>
+        <field name="model">edificio.edificio</field>
+        <field name="arch" type="xml">
+            <tree decoration-muted="is_done==True">
+                <field name="name"/>
+                <field name="is_done"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_AreaParch" model="ir.actions.act_window">
+        <field name="name">AreaParcheggio</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">edificio.areaparcheggio</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+          </p>
+        </field>
+    </record>
+
+    <record id="action_EnergiaElet" model="ir.actions.act_window">
+        <field name="name">DistribuzioneEnergiaElettrica</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">edificio.distribuzionenergiaelettrica</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+          </p>
+        </field>
+    </record>
+
+    <record id="action_Guardiola" model="ir.actions.act_window">
+        <field name="name">Guardiola</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">edificio.guardiola</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+          </p>
+        </field>
+    </record>
+
+
+    <record id="action_segnaleticaCartelliEsterni" model="ir.actions.act_window">
+        <field name="name">SegnaleticaCartelliEsterni</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">edificio.segnaleticacartelliesterni</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+          </p>
+        </field>
+    </record>
+
+    <record id="action_serviziGen" model="ir.actions.act_window">
+        <field name="name">Servizi Generali</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">edificio.servizigenerali</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+          </p>
+        </field>
+     </record>
+
+     <record id="action_valArea" model="ir.actions.act_window">
+        <field name="name">ValorizzazioneArea</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">edificio.valorizzazionearea</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+          </p>
+        </field>
+     </record>
+
+
+     <record id="action_verdeEsterno" model="ir.actions.act_window">
+        <field name="name">VerdeEsterno</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">edificio.verdesterno</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+          </p>
+        </field>
+     </record>
+    
+     <record id="action_zonePedonali" model="ir.actions.act_window">
+        <field name="name">ZonePedonali</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">edificio.zonepedonaliesterne</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+          </p>
+        </field>
+     </record>
+     
+
+     <record id="action_distrAcqua" model="ir.actions.act_window">
+        <field name="name">FornituraDistribuzioneAcqua</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">edificio.fornituradistracqua</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+          </p>
+        </field>
+     </record>
+
+
+
+
+
+    <record id="action_sistemaInt" model="ir.actions.act_window">
+        <field name="name">SistemaInterno</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">edificio.sistemainterno</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+          </p>
+        </field>
+     </record>
+
+     <record id="action_sistemaEst" model="ir.actions.act_window">
+        <field name="name">SistemaEsterno</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">edificio.sistemaesterno</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+          </p>
+        </field>
+     </record>
+
+     <record id="action_idricisanitari" model="ir.actions.act_window">
+        <field name="name">ImpiantoIdricoSanitario</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">edificio.impiantidricisanitari</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+          </p>
+        </field>
+     </record>
+
+     <record id="action_gas" model="ir.actions.act_window">
+        <field name="name">ImpiantoGas</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">edificio.impiantigas</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+          </p>
+        </field>
+     </record>
+
+
+
+     <record id="action_elettrico" model="ir.actions.act_window">
+        <field name="name">ImpiantoElettrico</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">edificio.impiantielettrici</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+          </p>
+        </field>
+     </record>
+
+
+     <record id="action_telecom" model="ir.actions.act_window">
+        <field name="name">ImpiantoTelecomunicazione</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">edificio.impiantitelecom</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+          </p>
+        </field>
+     </record>
+
+
+     <record id="action_sollev" model="ir.actions.act_window">
+        <field name="name">ImpiantoSollevamento</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">edificio.impiantisollevamento</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+          </p>
+        </field>
+     </record>
+
+     <record id="action_sicurezza" model="ir.actions.act_window">
+        <field name="name">ImpiantoSicurezza</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">edificio.impiantisicurezza</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+          </p>
+        </field>
+     </record>
+
+
+
+     <record id="action_impiantoclim" model="ir.actions.act_window">
+        <field name="name">ImpiantoClim</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">edificio.impiantidiclimatizzazione</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+          </p>
+        </field>
+     </record>
+
+
+
+     <record id="action_strutturaO" model="ir.actions.act_window">
+        <field name="name">StrutturaOrizzontale</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">edificio.strutturaorizzontale</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+          </p>
+        </field>
+     </record>
+
+
+     <record id="action_strutturav" model="ir.actions.act_window">
+        <field name="name">StrutturaVerticale</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">edificio.strutturaverticale</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+          </p>
+        </field>
+     </record>
+
+
+     <record id="action_sistema" model="ir.actions.act_window">
+        <field name="name">Fondazioni</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">edificio.fondazioni</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+          </p>
+        </field>
+    </record>
+
+     <record id="action_edificio" model="ir.actions.act_window">
+        <field name="name">Edificio</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">edificio.edificio</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{"search_default_female":1}</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Crea il tuo primo edificio!
+          </p>
+        </field>
+     </record>
+
+     <record id="action_cronologia" model="ir.actions.act_window">
+        <field name="name">Cronologia</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">edificio.cronologia</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{"search_default_female":1}</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Tieni traccia della tua manutenzione!
+          </p>
+        </field>
+     </record>
+ 
+ 
+     <record id="action_operatori" model="ir.actions.act_window">
+        <field name="name">Operatori</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">edificio.operatori</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{"search_default_female":1}</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Gestisci gli operatori coinvolti nella manutenzione!
+          </p>
+        </field>
+     </record>
+
+
+
+
+     <menuitem id ="Edificio_root" name="Edificio" sequence="1" web_icon="edificio,static/description/icon.png"/>
+     <menuitem id ="Edificio_struttura" name="Edificio" parent="Edificio_root" action="action_edificio"/>
+     <menuitem id="Edificio_cronologia" name="Cronologia" parent="Edificio_root" action="action_cronologia"/>
+     <menuitem id="Edificio_operatori" name="Operatori" parent="Edificio_root" action="action_operatori"/>
+
+      
+
+
+</odoo>

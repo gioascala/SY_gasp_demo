@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <record id="action_report" model="ir.actions.act_window">
+        <field name="name">Report</field>
+        <field name="res_model">product.product</field>
+        <field name="view_mode">graph</field>
+        <field name="context">{"search_default_group_by_prodotto":1,"search_default_test_passato":2}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Gli oggetti ancora non sono stati prodotti
+            </p>
+        </field>
+        </record>
+
+       <record model="ir.ui.view" id="report_search">
+            <field name="name">Report.search</field>
+            <field name="model">product.product</field>
+            <field name="arch" type="xml">
+                <search string="Ricerca">
+
+                    <filter name="test_passato" string="Test Superato" domain="[('test', '=', 'Superato')]"/>
+                <separator/>
+                <filter name="group_by_prodotto" string="Prodotto" context = "{'group_by': 'name' }"/>
+
+            </search>
+            </field>
+
+       </record>
+
+    <menuitem name="Report" id="report_prodotti"  parent="controllo_qualità_root" action="action_report" sequence="1" />
+
+</odoo>

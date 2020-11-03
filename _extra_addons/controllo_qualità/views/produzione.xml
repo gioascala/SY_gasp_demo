@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+
+
+
+        <record id="produzione_all" model="ir.actions.act_window">
+        <field name="name">Prodotti</field>
+        <field name="res_model">product.product</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Crea un nuovo prodotto
+            </p>
+        </field>
+    </record>
+
+
+    <data>
+        <record id="product_product_tree_view" model="ir.ui.view">
+            <field name="name">product.product.common.form.inherit</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_product_tree_view"/>
+            <field name="arch" type="xml">
+             <tree position="replace" >
+                 <tree decoration-danger="test == 'Fallito'" decoration-success="test == 'Superato'">
+            <field name="name"/>
+            <field name="weight" string="Peso [Kg]"/>
+            <field name="volume" string="Volume [m³]"/>
+		    <field name="test"/>
+                     </tree>
+                </tree>
+            </field>
+        </record>
+    </data>
+
+    <record model="ir.ui.view" id="product_normal_form_view">
+        <field name="name">procut.product.form.inherit</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_normal_form_view"/>
+        <field name="arch" type="xml">
+             <div class="oe_button_box" name="button_box">
+                                <button name="check_qualità" type="object" class="oe_stat_button" icon="fa-check"  style="width:150px;border-color:black; border-radius:5px;padding:0px 43px 0px 0px !important;">
+                                    Controllo Qualità
+                                </button>
+             </div>
+            <page name="general_information" position="inside">
+                <group>
+                <field name="weight" string="Peso [Kg]"/>
+                <field name="volume" string="Volume [m³]"/>
+                <field name="test"/>
+                </group>
+            </page>
+        </field>
+    </record>
+
+
+
+        <record model="ir.ui.view" id="produzione_form_poupup">
+            <field name="name">Produzione.form.poupup</field>
+            <field name="model">product.product</field>
+            <field name="arch" type="xml">
+                <form string="Produzione Form" edit="false" create="false" >
+                    <sheet>
+                        <div align="center">
+                      <button name="superato" type="object" class="oe_stat_button" icon="fa-thumbs-o-up" style="width:150px;border-color:black;border-radius:5px;background: lawngreen; color:black">
+                    Controllo Superato
+                    </button>
+                    <![CDATA[
+                    &nbsp;&nbsp;&nbsp;
+                    ]]>
+                    <button name="fallito" type="object" class="oe_stat_button" icon="fa-thumbs-o-down" style="width:150px;border-color:black;border-radius:5px;background: red; color:black ">
+                    Controllo Fallito
+                    </button>
+                        </div>
+                         <footer style= "display: none;"></footer>
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+
+
+<menuitem id="controllo_qualità_root" name="Controllo Qualità"  sequence="0" />
+<menuitem name="Prodotti" id="oggetti_prodotti"  parent="controllo_qualità_root" action="produzione_all" sequence="0" />
+
+</odoo>

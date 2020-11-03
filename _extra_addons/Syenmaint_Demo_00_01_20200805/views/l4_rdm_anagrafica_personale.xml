@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- vista dei Dipendenti -->
+        <record model="ir.ui.view" id="dipendenti_tree_view">
+            <field name="name">L4.rdm.dipendenti.tree</field>
+            <field name="model">l4_rdm_anagrafica_personale</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="l4sm_codice"/>
+                    <field name="l4sm_descr"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- form view per la creazione/modifica del dipendente -->
+        <record model="ir.ui.view" id="dipendenti_form_view">
+            <field name="name">L4.rdm.dipendente.form</field>
+            <field name="model">l4_rdm_anagrafica_personale</field>
+            <field name="arch" type="xml">
+                <form string="Casse Form">
+                    <sheet>
+                        <group>
+                            <field name="l4sm_codice"/>
+                            <field name="l4sm_descr"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- action che richiama la funzione del menu -->
+        <record id="l4_rdm_dipendenti_action" model="ir.actions.act_window">
+            <field name="name">Lista del Personale</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">l4_rdm_anagrafica_personale</field>
+            <field name="domain">[]</field> <!-- force empty -->
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                Crea un Dipendente
+              </p><p>
+                I Dipendenti servono a definire le attività di manutenzione.
+              </p>
+            </field>
+        </record>
+
+        <!-- voce di menu -->
+        <menuitem id="menu_l4_dipendenti_number"
+            action="l4_rdm_dipendenti_action"
+            parent="menu_l4_root"
+            sequence="101"/>
+    </data>
+</odoo>

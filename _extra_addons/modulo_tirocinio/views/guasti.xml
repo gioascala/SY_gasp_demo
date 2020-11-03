@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+   <record model="ir.ui.view" id="guasti_tree">
+        <field name="name">guasti.tree</field>
+        <field name="model">guasti</field>
+        <field name="arch" type="xml">
+          <tree string="Guasti   tree">
+
+                <field name="coperture"/>
+                <field name="finiture_interne"/>
+                <field name="fondazioni" />
+                <field name="infissi_esterni"/>
+                <field name="muri_esterni" />
+                <field name="partizioni_fisse"/>
+                <field name="pavimentazioni" />
+                <field name="strutture_orizzontali"/>
+                <field name="strutture_verticali"/>
+            </tree>
+        </field>
+      </record>
+
+    <record model="ir.ui.view" id="guasti_form">
+            <field name="name">guasti.form</field>
+            <field name="model">guasti</field>
+            <field name="arch" type="xml">
+                <form string="Guasti  Form">
+                    <sheet>
+                        <group>
+                            <field name="coperture"/>
+                        </group>
+                        <group>
+                            <field name="finiture_interne"/>
+                        </group>
+                        <group>
+                            <field name="fondazioni" />
+                        </group>
+                        <group>
+                            <field name="infissi_esterni"/>
+                        </group>
+                        <group>
+                            <field name="muri_esterni" />
+                        </group>
+                        <group>
+                            <field name="partizioni_fisse"/>
+                        </group>
+                        <group>
+                            <field name="pavimentazioni" />
+                        </group>
+                        <group>
+                            <field name="strutture_orizzontali"/>
+                        </group>
+                        <group>
+                        <field name="strutture_verticali"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_guasti">
+            <field name="name">Guasti</field>
+            <field name="res_model">guasti</field>
+            <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <menuitem name="Guasti" id="guasti"  sequence="4" parent="edificio_root"  action="action_guasti" />
+</odoo>

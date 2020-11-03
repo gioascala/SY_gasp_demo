@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+    <!-- tipo attività custom per la gestione delle notifiche di syenmaint.manutenzione -->
+    <record id="mail_act_syenmaint_manutenzione_request" model="mail.activity.type">
+        <field name="name">Manutenzione Syenmaint</field>
+        <field name="icon">fa-wrench</field>
+        <field name="res_model_id" ref="syenmaint.model_syenmaint_manutenzione"/>
+    </record>
+</data>
+</odoo>

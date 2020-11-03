@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+        <!-- QWeb Reports -->
+        <report
+            id="report_syenmaint_declare"
+            model="login.detail"
+            report_type="qweb-pdf"
+            string="Stampa pdf"
+            name="login_user_detail.report_syenmaint_request"
+            file="login_user_detail.report_syenmaint_request"
+        />
+    </data>
+</odoo>
+
+<!--
+    file xml che serve all'esportazione dei contenuti del database con l'azione di stampa
+1.  Devono essere creati 2 file e inseriti in Modulo/views/: report_syenmaint_request.xml e syenmaint_report_request.xml
+2.  model= specifichiamo dove deve comparire il pulsante stampa
+    report_type= possiamo inserire qweb-pdf, qweb-text, qweb-html
+    string= è il nome che compare nel menu a tendina
+    name= e file= DEVONO ESSERE UGUALI, va inserito NOMEMODULO.report_syenmaint_request
+3.  inserire i 2 file nel _manifest_.py es.->         'views/syenmaint_request_report.xml',
+-->

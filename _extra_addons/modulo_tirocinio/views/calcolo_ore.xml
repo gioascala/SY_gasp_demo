@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- vista delle Casse -->
+        <record model="ir.ui.view" id="calcolo_ore_tree_view">
+            <field name="name">L4.rdm.calcolo.ore.tree</field>
+            <field name="model">syenmaint_calcolo_ore</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="l4sm_codice"/>
+                    <field name="l4sm_codice"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- form view per la creazione/modifica delle Casse -->
+        <record model="ir.ui.view" id="casse_form_view">
+            <field name="name">L4.rdm.calcolo.ore.form</field>
+            <field name="model">syenmaint_calcolo_ore</field>
+            <field name="arch" type="xml">
+                <form delete="false" duplicate="false"  create="false" string="Calcolo Ore Form">
+                    <sheet>
+                        <group>
+                            <field name="l4sm_codice"/>
+                            <field name="l4sm_seleziona_modalita"/>
+                            <field name="l4sm_data_mese" attrs="{'invisible': [('l4sm_seleziona_modalita', '!=', 'ma')],
+                        'required': [('l4sm_seleziona_modalita', '=', 'ma')]}"/>
+                            <field name="l4sm_data_anno" attrs="{'invisible': [('l4sm_seleziona_modalita', '!=', 'ma')],
+                        'required': [('l4sm_seleziona_modalita', '=', 'ma')]}"/>
+                            <field name="l4sm_data_inizio" attrs="{'invisible': [('l4sm_seleziona_modalita', '!=', 'dif')],
+                        'required': [('l4sm_seleziona_modalita', '=', 'dif')]}"/>
+                            <field name="l4sm_data_fine" attrs="{'invisible': [('l4sm_seleziona_modalita', '!=', 'dif')],
+                        'required': [('l4sm_seleziona_modalita', '=', 'dif')]}"/>
+                            <field name="l4sm_modalita"/>
+                            <field name="l4sm_lista_addetti" attrs="{'invisible': [('l4sm_modalita', '!=', 'man')],
+                        'required': [('l4sm_modalita', '=', 'man')]}"/>
+                        </group>
+                        <group>
+                            <button name="calcola_ore" string="Calcola " type="object" class="oe_highlight"/>
+                        </group>
+                        <group>
+                            <field name="l4sm_tot_ore" readonly="1"/>
+                            <field name="l4sm_lista_addetti" readonly="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- action che richiama la funzione del menu -->
+        <record id="l4calcolo_action" model="ir.actions.act_window">
+            <field name="name">Calcolo delle Ore</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">syenmaint_calcolo_ore</field>
+            <field name="domain">[]</field> <!-- force empty -->
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Esegui un calcolo
+                </p><p>
+                Calcola le ore dei dipendenti
+            </p>
+            </field>
+        </record>
+
+        <!-- voce di menu -->
+        <menuitem id="menu_l4calcolo"
+                  action="l4calcolo_action"
+                  sequence="2" parent="edificio_root"/>
+
+
+
+
+        <!--                &lt;!&ndash; form per l'associazione del personale &ndash;&gt;-->
+        <!--        <record model="ir.ui.view" id="l4_personale_ore_form_view">-->
+        <!--            <field name="name">L4.personale.ore.form</field>-->
+        <!--            <field name="model">syenmaint.l4_personale_ore1</field>-->
+        <!--            <field name="arch" type="xml">-->
+        <!--                <form delete="false" duplicate="false"  create="false" edit="false" string="part_number associato alla Manutenzione">-->
+        <!--                    <sheet>-->
+        <!--                        <group>-->
+        <!--                            <field name="l4sm_personale"/>-->
+        <!--                            <field name="l4sm_ore"/>-->
+        <!--                            <field name="l4sm_srai_lavori"/>-->
+        <!--                        </group>-->
+        <!--                    </sheet>-->
+        <!--                </form>-->
+        <!--            </field>-->
+        <!--        </record>-->
+
+        <!--        &lt;!&ndash; vista personale &ndash;&gt;-->
+        <!--        <record model="ir.ui.view" id="l4_personale_ore_tree_view">-->
+        <!--            <field name="name">L4.personale.ore.tree</field>-->
+        <!--            <field name="model">syenmaint.l4_personale_ore1</field>-->
+        <!--            <field name="arch" type="xml">-->
+        <!--                <tree string="Misure per Tipologia">-->
+        <!--                    <field name="l4sm_personale"/>-->
+        <!--                    <field name="l4sm_ore"/>-->
+        <!--                    <field name="l4sm_srai_lavori"/>-->
+        <!--                </tree>-->
+        <!--            </field>-->
+        <!--        </record>-->
+
+
+        <!--                &lt;!&ndash; vista delle Casse &ndash;&gt;-->
+        <!--        <record model="ir.ui.view" id="calcolo_ore_tree_view">-->
+        <!--            <field name="name">L4.rdm.calcolo.ore.tree</field>-->
+        <!--            <field name="model">syenmaint.l4_personale_ore2</field>-->
+        <!--            <field name="arch" type="xml">-->
+        <!--                <tree delete="false" duplicate="false"  create="false" edit="false" default_order='create_date desc'>-->
+        <!--                    <field name="l4sm_data_calcolo" readonly = "1"/>-->
+        <!--                    <field name="l4sm_inizio" readonly = "1"/>-->
+        <!--                    <field name="l4sm_fine" readonly = "1"/>-->
+        <!--                    <field name="l4sm_tot_ore" force_save="1" readonly = "1"/>-->
+        <!--                    &lt;!&ndash;                            <field name="l4sm_lista_addetti" widget="one2many" force_save="1">&ndash;&gt;-->
+        <!--&lt;!&ndash;                                <tree string="Personale" editable="bottom">&ndash;&gt;-->
+        <!--&lt;!&ndash;                                    <field name="l4sm_personale"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;                                    <field name="l4sm_ore"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;                                    &lt;!&ndash;<field name="l4sm_rdm_ore_uomo"/>&ndash;&gt;&ndash;&gt;-->
+        <!--&lt;!&ndash;                                </tree>&ndash;&gt;-->
+        <!--&lt;!&ndash;                            </field>&ndash;&gt;-->
+        <!--                </tree>-->
+        <!--            </field>-->
+        <!--        </record>-->
+
+        <!--                        &lt;!&ndash; form per l'associazione del personale &ndash;&gt;-->
+        <!--        <record model="ir.ui.view" id="calcolo_ore_form_view">-->
+        <!--            <field name="name">L4.calcolo.ore.form</field>-->
+        <!--            <field name="model">syenmaint.l4_personale_ore2</field>-->
+        <!--            <field name="arch" type="xml">-->
+        <!--                <form delete="false" duplicate="false"  create="false" edit="false" string="part_number associato alla Manutenzione">-->
+        <!--                    <sheet>-->
+        <!--                        <group>-->
+        <!--                            <field name="l4sm_data_calcolo"/>-->
+        <!--                    <field name="l4sm_inizio"/>-->
+        <!--                    <field name="l4sm_fine"/>-->
+        <!--                    <field name="l4sm_tot_ore"/>-->
+        <!--                            <field name="l4sm_lista_addetti" force_save="1"/>-->
+        <!--                            &lt;!&ndash;                            <field name="l4sm_lista_addetti" widget="one2many" force_save="1" readonly="1">&ndash;&gt;-->
+        <!--&lt;!&ndash;                                <tree string="Personale" editable="bottom">&ndash;&gt;-->
+        <!--&lt;!&ndash;                                    <field name="l4sm_personale"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;                                    <field name="l4sm_ore"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;                                    &lt;!&ndash;<field name="l4sm_rdm_ore_uomo"/>&ndash;&gt;&ndash;&gt;-->
+        <!--&lt;!&ndash;                                </tree>&ndash;&gt;-->
+        <!--&lt;!&ndash;                            </field>&ndash;&gt;-->
+        <!--                        </group>-->
+        <!--                    </sheet>-->
+        <!--                </form>-->
+        <!--            </field>-->
+        <!--        </record>-->
+
+        <!--        &lt;!&ndash; action che richiama la funzione del menu &ndash;&gt;-->
+        <!--        <record id="l4calcolo_action2" model="ir.actions.act_window">-->
+        <!--            <field name="name">Storico del Calcolo delle Ore</field>-->
+        <!--            <field name="type">ir.actions.act_window</field>-->
+        <!--            <field name="res_model">syenmaint.l4_personale_ore2</field>-->
+        <!--            <field name="domain">[]</field> &lt;!&ndash; force empty &ndash;&gt;-->
+        <!--            <field name="view_type">form</field>-->
+        <!--            <field name="view_mode">tree,form</field>-->
+        <!--            <field name="help" type="html">-->
+        <!--              <p class="o_view_nocontent_smiling_face">-->
+        <!--                Esegui un calcolo-->
+        <!--              </p><p>-->
+        <!--                Calcola le ore dei dipendenti-->
+        <!--              </p>-->
+        <!--            </field>-->
+        <!--        </record>-->
+
+        <!--                <menuitem id="menu_l4calcolo2"-->
+        <!--            action="l4calcolo_action2"-->
+        <!--            parent="menu_l4_ore"-->
+        <!--            sequence="81"/>-->
+    </data>
+</odoo>

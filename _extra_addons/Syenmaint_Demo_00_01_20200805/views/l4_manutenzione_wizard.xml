@@ -1,0 +1,28 @@
+<odoo>
+        <record id="l4_manutenzione_wizard_form" model="ir.ui.view">
+            <field name="name">wizard</field>
+            <field name="model">wizard</field>
+            <field name="arch" type="xml">
+                <form string="Ciclo">
+                    <group class="oe_title">
+                        <field name="l4sm_day_cyc"/>
+                        <field name="l4sm_num_cyc"/>
+                    </group>
+                    <footer>
+                        <!-- e' importante che al button sia data una funzione da eseguire altrimenti non chiude la wizard-->
+                        <button name="redirect" string="Genera" type="object" class="oe_highlight"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="l4_manutenzione_wizard" model="ir.actions.act_window">
+            <field name="name">Ciclo</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">wizard</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="l4_manutenzione_wizard_form"/>
+            <field name="target">new</field>
+        </record>
+</odoo>

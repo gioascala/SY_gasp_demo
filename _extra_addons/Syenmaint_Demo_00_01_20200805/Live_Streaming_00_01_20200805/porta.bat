@@ -1,0 +1,1 @@
+netstat -ano | find "8080" > "salva.txt"

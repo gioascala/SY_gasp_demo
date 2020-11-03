@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+   <record model="ir.ui.view" id="fondazioni_tree">
+        <field name="name">Fondazioni.tree</field>
+        <field name="model">fondazioni</field>
+        <field name="arch" type="xml">
+          <tree string="Fondazioni tree">
+            <field name="unità_tecnologica"/>
+            <field name="elemento_tecnico"/>
+            </tree>
+        </field>
+      </record>
+
+    <record model="ir.ui.view" id="fondazioni_form">
+            <field name="name">Fondazioni.form</field>
+            <field name="model">fondazioni</field>
+            <field name="arch" type="xml">
+                <form string="Fondazioni Form">
+                    <sheet>
+                        <field name="unità_tecnologica"/>
+                        <field name="elemento_tecnico"/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+</odoo>

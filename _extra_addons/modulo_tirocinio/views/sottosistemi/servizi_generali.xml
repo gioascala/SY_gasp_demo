@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+   <record model="ir.ui.view" id="servizi_generali_tree">
+        <field name="name">servizi_generali.tree</field>
+        <field name="model">servizi_generali</field>
+        <field name="arch" type="xml">
+          <tree string="Servizi generali tree">
+            <field name="unità_tecnologica"/>
+            <field name="elemento_tecnico"/>
+            </tree>
+        </field>
+      </record>
+
+    <record model="ir.ui.view" id="servizi_generali_form">
+            <field name="name">servizi_generali.form</field>
+            <field name="model">servizi_generali</field>
+            <field name="arch" type="xml">
+                <form string="Servizi generali Form">
+                    <sheet>
+                        <group>
+                            <field name="unità_tecnologica"/>
+                        </group>
+                        <group>
+                            <field name="elemento_tecnico"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+</odoo>

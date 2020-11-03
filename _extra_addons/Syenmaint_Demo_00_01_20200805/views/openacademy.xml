@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- window action -->
+        <!--
+            The following tag is an action definition for a "window action",
+            that is an action opening a view or a set of views
+        -->
+        <record model="ir.actions.act_window" id="course_list_action">
+            <field name="name">Live Straming</field>
+            <field name="res_model">live_streaming.course</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="button" type="html">
+
+                <p class="o_view_nocontent_smiling_face">Create the first course
+                </p>
+
+            </field>
+        </record>
+
+
+              <record model="ir.ui.view" id="casse_anomalie_form_view">
+            <field name="name">live_streaming.form</field>
+            <field name="model">live_streaming.course</field>
+            <field name="arch" type="xml">
+                <form string="Casse Form">
+                    <sheet>
+                        <header>
+                        <button name="avvia_streaming" type="object" string="Avvia" class="oe_highlight" states="" modifiers="{}" options="{}"/>
+                            </header>
+                        <group>
+							<form string="Embedded Webpage" version="7.0" edit="false" create="false">
+                                <!--Inserire l'indirizzo IP del server di node js che gestisce il video streaming, essendo un iframe é importante che siano allowed camera e microphone -->
+							<iframe src="http://192.168.0.62:8080" marginheight="0" marginwidth="0" frameborder="0" width="100%" height="750" allow="camera; microphone;"/>
+							</form>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- top level menu: no parent -->
+        <menuitem id="main_live_streaming_menu" name="Live Streaming"/>
+        <!-- A first level in the left side menu is needed
+             before using action= attribute -->
+        <menuitem id="live_streaming_menu" name="Live Streaming"
+                  parent="main_live_streaming_menu"/>
+        <!-- the following menuitem should appear *after*
+             its parent live_streaming_menu and *after* its
+             action course_list_action -->
+        <menuitem id="courses_menu" name="Live Streaming" parent="live_streaming_menu"
+                  action="course_list_action"/>
+        <!-- Full id location:
+             action="live_streaming.course_list_action"
+             It is not required when it is the same module -->
+    </data>
+</odoo>

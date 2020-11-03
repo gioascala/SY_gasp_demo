@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+   <record model="ir.ui.view" id="prodotti_in_uscita_tree">
+        <field name="name">Prodotti_in_uscita.tree</field>
+        <field name="model">prodotti_in_uscita</field>
+        <field name="arch" type="xml">
+          <tree string="Prodotti in uscita tree">
+            <field name="prodotto"/>
+            <field name="cliente"/>
+            <field name="peso" string="Peso [Kg]"/>
+            <field name="volume" string="Volume [m³]"/>
+            </tree>
+        </field>
+      </record>
+
+    <record model="ir.ui.view" id="prodotti_in_uscita_form">
+            <field name="name">Prodotti_in_uscita.form</field>
+            <field name="model">prodotti_in_uscita</field>
+            <field name="arch" type="xml">
+                <form string="Prodotti in uscita Form" >
+                    <sheet>
+                            <group>
+                            <field name="prodotto"/>
+                            <field name="cliente"/>
+                            <field name="peso" string="Peso [Kg]"/>
+                            <field name="volume" string="Volume [m³]"/>
+                            </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="prodotti_in_uscita_action" model="ir.actions.act_window">
+        <field name="name">Prodotti in uscita</field>
+        <field name="res_model">prodotti_in_uscita</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Crea un nuovo prodotto in uscita
+            </p>
+        </field>
+    </record>
+
+
+
+
+<menuitem name="Prodotti in uscita" id="prodotti_in_uscita"  parent="controllo_qualità_root" action="prodotti_in_uscita_action" sequence="3" />
+
+</odoo>

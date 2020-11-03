@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<odoo>
+    <data> 
+        <record id="email_di_avviso" model="mail.template">
+            <field name="name">Email di avviso</field>
+            <field name="model_id" ref="modulo_tirocinio.model_manutenzione"/>
+            <field name="email_from">${object.create_uid.email}</field>
+            <field name="email_to"></field>
+            <field name="subject">Avviso Manutenzione</field>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                      
+                    </p>
+                </div>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record model="ir.ui.view" id="edificio_cronologia_form_view">
+        <field name="name">edificio.cronologia.form</field>
+        <field name="model">edificio.cronologia</field>
+        <field name="arch" type="xml">
+            <form string="Cronologia">
+		<sheet>
+                    <group name="group_top">
+                        <group name="group_left">
+			    <field name ="name"/>
+                            <field name="edificio_id"/>
+                        </group>
+                        <group name="group_right">
+			    <field name ="data_fine"/> <br/>
+			    <field name ="data_fine2"/> <br/>	
+		            <field name="stop_iniz"/> <br/>
+                            <field name="stop_fin"/> <br/>
+                            <field name="pausa_text"/> <br/>
+                        </group>
+		    </group>
+		</sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+   <record model="ir.ui.view" id="distribuzione_energia_elettrica_tree">
+        <field name="name">distribuzione_energia_elettrica.tree</field>
+        <field name="model">distribuzione_energia_elettrica</field>
+        <field name="arch" type="xml">
+          <tree string="Distribuzione energia elettrica tree">
+            <field name="unità_tecnologica"/>
+            <field name="elemento_tecnico"/>
+            </tree>
+        </field>
+      </record>
+
+    <record model="ir.ui.view" id="distribuzione_energia_elettrica_form">
+            <field name="name">distribuzione_energia_elettrica.form</field>
+            <field name="model">distribuzione_energia_elettrica</field>
+            <field name="arch" type="xml">
+                <form string="Distribuzione energia elettrica Form">
+                    <sheet>
+                        <group>
+                            <field name="unità_tecnologica"/>
+                        </group>
+                        <group>
+                            <field name="elemento_tecnico"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+</odoo>

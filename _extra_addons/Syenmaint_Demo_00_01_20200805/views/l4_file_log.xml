@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- vista grafico -->
+        <record model="ir.ui.view" id="vista_grafico">
+            <field name="name">L4.l4_log_container_dati.graph</field>
+            <field name="title">Log Manutenzione</field>
+            <field name="model">syenmaint.l4_log_container_dati</field>
+            <field name="arch" type="xml">
+                <graph string="Grafico Dati File Log" type="line">
+                    <field name="l4sm_BAU1" type="measure"/>
+                    <field name="l4sm_time_s" type="col"/>
+                </graph>
+            </field>
+        </record>
+
+        <!-- azione che mostra un grafico -->
+        <record model="ir.actions.act_window" id="l4_file_log_action">
+            <field name="name">Grafico dati Log</field>
+            <field name="res_model">syenmaint.l4_log_container_dati</field>
+            <field name="view_mode">tree,form,graph</field>
+            <field name="view_id" ref="vista_grafico"/>
+        </record>
+
+        <!-- menu di grafico test -->
+        <menuitem id="menu_l4_file_log"
+            action="l4_file_log_action"
+            parent="menu_l4_anagrafiche"
+            sequence="10"/>
+    </data>
+</odoo>

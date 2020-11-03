@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- vista delle tipologie di manutenzione -->
+        <record model="ir.ui.view" id="tipo_manutenzione_tree_view">
+            <field name="name">L4.tipo_manutenzione.tree</field>
+            <field name="model">syenmaint.l4_tipo_manutenzione</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="l4sm_codice"/>
+                    <field name="l4sm_descrizione"/>
+                    <field name="l4sm_codice_bom_id"/>
+                </tree>
+            </field>
+        </record>
+        <!-- vista Tipologie - Misure -->
+        <record model="ir.ui.view" id="tipo_manutenzione_misure_tree_view">
+            <field name="name">L4.tipo_manutenzione_misure.tree</field>
+            <field name="model">syenmaint.l4_tipo_manutenzione_misure</field>
+            <field name="arch" type="xml">
+                <tree string="Misure per Tipologia">
+                    <field name="l4sm_misure_id"/>
+                </tree>
+            </field>
+        </record>
+        <!-- form per l'associazione delle misure alle tipologie -->
+        <record model="ir.ui.view" id="tipo_manutenzione_misure_form_view">
+            <field name="name">L4.tipo_manutenzione_misure.form</field>
+            <field name="model">syenmaint.l4_tipo_manutenzione_misure</field>
+            <field name="arch" type="xml">
+                <form string="Tipo Manutenzione - Misure Form">
+                    <sheet>
+                        <group>
+                            <field name="l4sm_misure_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- form view per la creazione/modifica della tipologia di manutenzione -->
+        <!-- in questa sezione si possono anche associare le misure relative -->
+        <record model="ir.ui.view" id="tipo_manutenzione_form_view">
+            <field name="name">L4.tipo_manutenzione.form</field>
+            <field name="model">syenmaint.l4_tipo_manutenzione</field>
+            <field name="arch" type="xml">
+                <form string="Tipo Manutenzione - Misure Form">
+                    <sheet>
+                        <group>
+                            <field name="l4sm_codice"/>
+                            <field name="l4sm_descrizione"/>
+                            <field name="l4sm_codice_bom_id"/>
+                            <field name="l4sm_video_rendering"  filename="file_name"/>
+                            <field name="file_name" invisible="1"/>
+                        </group>
+                        <notebook>
+                            <page string="Misure associate alla Tipologia">
+                                <field name="l4sm_tipo_manutenzione_misure_ids"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- action che richiama la funzione del menu -->
+        <record id="l4_tipo_manutenzione_action" model="ir.actions.act_window">
+            <field name="name">Lista delle Tipologie di Manutenzione</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">syenmaint.l4_tipo_manutenzione</field>
+            <field name="domain">[]</field> <!-- force empty -->
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                Crea una Tipologia di Manutenzione
+              </p><p>
+                Le tipologie di manutenzione servono a mettere in correlazione gli eventi manutentivi
+                alle schede di manutenzione. In questo modo, quando dalle Control Box viene lanciato
+                un evento manutentivo, il LAYER4 della SYENMAINT PLATFORM identifica ne identifica l'origine
+                e predispone tutti i meccanismi per attivare i processi di gestione della manutenzione.
+              </p>
+            </field>
+        </record>
+        <menuitem id="menu_l4_tipo_manutenzione"
+            action="l4_tipo_manutenzione_action"
+            parent="menu_l4_anagrafiche"
+            sequence="5"/>
+    </data>
+</odoo>

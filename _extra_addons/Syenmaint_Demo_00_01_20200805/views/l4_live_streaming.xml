@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+<!--                    <template id="assets_backend" name="tree view menu" inherit_id="web.assets_backend">-->
+<!--                  <xpath expr="." position="inside">-->
+<!--                        <script type="text/javascript" src="/syenmaint/static/src/js/tree_view_button.js"></script>-->
+<!--                  </xpath>-->
+<!--            </template>-->
+        <!-- vista delle controlbox -->
+        <record model="ir.ui.view" id="live_streaming_tree_view">
+            <field name="name">L4.live_streaming.tree</field>
+            <field name="model">syenmaint.l4_live_streaming</field>
+            <field name="arch" type="xml">
+                <tree edit="false" create="false" delete="false" duplicate="false">
+                    <field name="l4sm_codice"/>
+                </tree>
+            </field>
+        </record>
+        <!-- form view per la creazione/modifica della control_box -->
+        <record model="ir.ui.view" id="live_streaming_form_view">
+            <field name="name">L4.live_streaming.form</field>
+            <field name="model">syenmaint.l4_live_streaming</field>
+            <field name="arch" type="xml">
+                <form string="Live Streaming Form" edit="false" create="false" delete="false" duplicate="false">
+                    <sheet>
+                        <header>
+                            <field name="syl4_title"/>
+                        </header>
+                        <group>
+                            <form string="Embedded Webpage" version="7.0" edit="false" create="false">
+                                <!--Inserire l'indirizzo IP del server di node js che gestisce il video streaming, essendo un iframe é importante che siano allowed camera e microphone -->
+							<iframe src="http://syenmaint.ddns.net:8080" marginheight="0" marginwidth="0" frameborder="0" width="100%" height="750" allow="camera; microphone;"/>
+                            </form >
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- action che richiama la funzione del menu -->
+        <record id="l4_live_streaming_action" model="ir.actions.act_window">
+            <field name="name">Live Streaming</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">syenmaint.l4_live_streaming</field>
+            <field name="domain">[]</field> <!-- force empty -->
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">inline</field>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                Video Streaming
+              </p><p>
+                Video Streaming
+            </p>
+            </field>
+        </record>
+
+
+        <menuitem id="menu_l4_live_streaming"
+            action="l4_live_streaming_action"
+            parent="menu_l4_root"
+            sequence="99"/>
+    </data>
+</odoo>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+   <record model="ir.ui.view" id="fotocamera_tree">
+        <field name="name">Fotocamera.tree</field>
+        <field name="model">fotocamera</field>
+        <field name="arch" type="xml">
+          <tree string="Fotocamera tree" edit="false" create="false">
+            <field name="posizione"/>
+            <field name="id_edificio"/>
+            <field name="timestamp"/>
+            <field name="image" widget="image" width="300px" height="200px"/>
+            </tree>
+        </field>
+      </record>
+
+        <record model="ir.ui.view" id="fotocamera_form">
+            <field name="name">Fotocamera.form</field>
+            <field name="model">fotocamera</field>
+            <field name="arch" type="xml">
+                <form string="Fotocamera Form" edit="false" create="false">
+                    <sheet>
+                            <group>
+                            <group>
+                            <field name="id_edificio"/>
+                            <field name="posizione"/>
+                            </group>
+                            <group>
+                            <field name="timestamp"/>
+                            <field name="image" widget="image" />
+                            </group>
+                            </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+    <record model="ir.ui.view" id="fotocamera_form_upload">
+            <field name="name">Fotocamera.form.upload</field>
+            <field name="model">fotocamera</field>
+            <field name="arch" type="xml">
+                <form string="Fotocamera Form upload" >
+                    <sheet>
+                    <group>
+                    <field name="posizione"/>
+                    </group>
+                    <group>
+                    <field name="image_upload" widget="many2many_binary"/>
+                    </group>
+
+                    <div align="center">
+                    <button   name="carica" type="object" class="oe_stat_button" icon="fa-thumbs-o-up" style="width:150px;border-color:black;border-radius:5px;background: lawngreen; color:black">
+                    Carica le immagini
+                    </button>
+                    </div>
+                <footer style= "display: none;"></footer>
+
+                    </sheet>
+                </form>
+            </field>
+    </record>
+
+
+</odoo>

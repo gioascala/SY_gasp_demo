@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+   <record model="ir.ui.view" id="impianti_sicurezza_tree">
+        <field name="name">impianti_sicurezza.tree</field>
+        <field name="model">impianti_sicurezza</field>
+        <field name="arch" type="xml">
+          <tree string="Impianti di sicurezza tree">
+            <field name="unità_tecnologica"/>
+            <field name="elemento_tecnico"/>
+            </tree>
+        </field>
+      </record>
+
+    <record model="ir.ui.view" id="impianti_sicurezza_form">
+            <field name="name">impianti_sicurezza.form</field>
+            <field name="model">impianti_sicurezza</field>
+            <field name="arch" type="xml">
+                <form string="Impianti di sicurezza Form">
+                    <sheet>
+                        <group>
+                            <field name="unità_tecnologica"/>
+                        </group>
+                        <group>
+                            <field name="elemento_tecnico"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+</odoo>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+<data noupdate="1">
+    <record id="sequenza_rilevazioni" model="ir.sequence">
+    <field name="name">Sequenza rilevazioni</field>
+    <field name="code">rilevazioni.sequenza</field>
+    <field name="padding">4</field>
+    </record>
+</data>
+</odoo>
+    

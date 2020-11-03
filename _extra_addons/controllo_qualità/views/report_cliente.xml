@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <record id="action_report_cliente" model="ir.actions.act_window">
+        <field name="name">Report Clienti</field>
+        <field name="res_model">prodotti_in_uscita</field>
+        <field name="view_mode">graph</field>
+        <field name="context">{"search_default_group_by_cliente":1}</field>
+
+    </record>
+
+       <record model="ir.ui.view" id="report_search_cliente">
+            <field name="name">Report_clienti.search</field>
+            <field name="model">prodotti_in_uscita</field>
+            <field name="arch" type="xml">
+                <search string="Clienti">
+                <filter name="group_by_cliente" string="Clienti" context = "{'group_by': 'cliente' }"/>
+            </search>
+            </field>
+
+       </record>
+
+    <menuitem name="Report clienti" id="report_prodotti_clienti"  parent="controllo_qualità_root" action="action_report_cliente" sequence="5" />
+
+</odoo>

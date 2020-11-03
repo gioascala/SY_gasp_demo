@@ -1,0 +1,173 @@
+<odoo>
+    <data>
+        <!-- azione che mostra la vista delle manutenzioni -->
+        <record model="ir.actions.act_window" id="manutenzione_list_action">
+            <field name="name">Manutenzione</field>
+            <field name="res_model">syenmaint.manutenzione</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- action per richiamare la vista delle manutenzioni -->
+        <record model="ir.actions.act_window" id="manutenzione_list_action">
+            <field name="name">Manutenzioni</field>
+            <field name="res_model">syenmaint.manutenzione</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">Crea la prima attività di manutenzione
+                </p>
+            </field>
+        </record>
+
+        <!-- vista delle controlbox -->
+        <record model="ir.ui.view" id="control_box_tree_view">
+            <field name="name">Syenmaint list</field>
+            <field name="model">syenmaint.control_box</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="sm_name"/>
+                    <field name="sm_stato"/>
+                    <field name="sm_denominazione"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- vista delle tipologie -->
+        <record model="ir.ui.view" id="tipo_evento_manutentivo_tree_view">
+            <field name="name">Syenmaint list</field>
+            <field name="model">syenmaint.tipo_evento_manutentivo</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="sm_name"/>
+                    <field name="sm_descrizione"/>
+                    <field name="sm_bom_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- vista grafico -->
+        <record model="ir.ui.view" id="vista_grafico">
+            <field name="name">syenmaint.grafico</field>
+            <field name="title">Log Manutenzione</field>
+            <field name="model">syenmaint.file_log</field>
+            <field name="arch" type="xml">
+                <graph string="Grafico Dati File Log" type="line">
+                    <field name="sm_acc_x" type="measure"/>
+                    <field name="sm_time" type="col"/>
+                </graph>
+            </field>
+        </record>
+
+        <!-- azione che mostra la vista delle controlbox -->
+        <record model="ir.actions.act_window" id="control_box_list_action">
+            <field name="name">Syenmaint window</field>
+            <field name="res_model">syenmaint.control_box</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- azione che mostra un grafico -->
+        <record model="ir.actions.act_window" id="grafico_list_action">
+            <field name="name">Syenmaint window</field>
+            <field name="res_model">syenmaint.manutenzione</field>
+            <field name="view_mode">tree,form,graph</field>
+            <field name="view_id" ref="vista_grafico"/>
+        </record>
+
+        <!-- azione che mostra la vista delle tipologie -->
+        <record model="ir.actions.act_window" id="tipologia_evento_manutentivo_list_action">
+            <field name="name">Syenmaint window</field>
+            <field name="res_model">syenmaint.tipo_evento_manutentivo</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- menu principale applicazione -->
+        <menuitem sequence="100"
+                  name="SYENMAINT"
+                  id="syenmaint.menu_root"
+                  web_icon="Syenmaint_Demo_00_01_20200805,static/src/img/icon.png" action="manutenzione_list_action"/>
+
+
+        <!-- menu di primo livello -->
+        <menuitem name="Manutenzioni" id="syenmaint.manutenzioni" parent="syenmaint.menu_root"
+                  action="manutenzione_list_action" groups="syl4_group_hidden"/>
+        <menuitem name="Anagrafiche" id="syenmaint.anagrafiche" parent="syenmaint.menu_root" groups="syl4_group_hidden"/>
+
+        <!-- menu di secondo livello -->
+        <menuitem name="Control Box" id="syenmaint.control_box" parent="syenmaint.anagrafiche"
+                  action="control_box_list_action"/>
+
+        <!-- menu di grafico test -->
+        <menuitem name="Grafico" id="syenmaint.grafico" parent="syenmaint.anagrafiche"
+                  action="grafico_list_action"/>
+
+        <menuitem name="Tipologia Manutenzioni" id="syenmaint.tipologia_evento_manutentivo" parent="syenmaint.anagrafiche"
+                  action="tipologia_evento_manutentivo_list_action"/>
+
+        <!-- vista della manutenzione -->
+        <record model="ir.ui.view" id="manutenzione_tree_view">
+            <field name="name">manutenzione.tree</field>
+            <field name="model">syenmaint.manutenzione</field>
+            <field name="arch" type="xml">
+                <tree default_order='create_date desc'
+                    decoration-warning="sm_stato2==1"
+                    decoration-success="sm_stato2==5"
+                    decoration-danger='sm_stato2==2'
+                    decoration-primary="sm_stato2==3"
+                    decoration-info="sm_stato2==4"
+                    decoration-bf="sm_stato2==1 or sm_stato2==2 or sm_stato2==3 or sm_stato2==4 or sm_stato2==5 or sm_stato2==False" >
+                    <field name="sm_stato2"  />
+                    <!--<field name="sm_rif_anomalia"  />-->
+                    <field name="sm_tipo_tipoanomalia" />
+                    <field name="sm_name" />
+                    <!--<field name="sm_intervento_manutentivo_richiesto"  />-->
+                    <field name='create_date'/>
+                    <!--<field name="sm_riferimenti" />-->
+                    <field name="sm_id_control_box" />
+                    <field name="sm_lat" />
+                    <field name="sm_lng" />
+                    <field name="sm_progressiva" />
+                    <field name="sm_velocita" />
+                    <button name="file_log" type="object"
+							string="Log" class="oe_highlight" />
+                </tree>
+            </field>
+        </record>
+
+        <!-- vista dello stato
+        <record model="ir.ui.view" id="stato_manutenzione">
+            <field name="name">statomanutenzione.tree</field>
+            <field name="model">syenmaint.manutenzione</field>
+            <field name="arch" type="xml">
+                <form>
+                    <button name="convalida" type="object"
+							string="Convalida" class="oe_highlight" />
+                    <button name="convalida" type="object"
+							string="Convalida" class="oe_highlight" />
+                    <button name="convalida" type="object"
+							string="Convalida" class="oe_highlight" />
+                    <button name="convalida" type="object"
+							string="Convalida" class="oe_highlight" />
+                    <button name="convalida" type="object"
+							string="Convalida" class="oe_highlight" />
+                </form>
+            </field>
+        </record>-->
+        <!-- azione di convalida
+        <record model="ir.actions.act_window" id="convalida_syenmaint">
+            <field name="name">Convalida</field>
+            <field name ="binding_model_id" ref="model_syenmaint_manutenzione"/>
+            <field name ="res_model">syenmaint.manutenzione</field>
+            <field name="view_id" ref="stato_manutenzione"/>
+        </record>-->
+
+        <record model="ir.actions.server" id="test_azione">
+            <field name="name">Convalida</field>
+            <field name="model_id" ref="model_syenmaint_manutenzione"/>
+            <field name ="binding_model_id" ref="model_syenmaint_manutenzione"/>
+            <field name="state">code</field>
+            <field name="code">
+                records.convalida()
+            </field>
+        </record>
+    </data>
+</odoo>

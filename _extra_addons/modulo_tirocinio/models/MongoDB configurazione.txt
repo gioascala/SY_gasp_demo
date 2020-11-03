@@ -1,0 +1,3 @@
+link=mongodb+srv://Benito:tirociniobenito@cluster-szud4.gcp.mongodb.net/Tirocinio?retryWrites=true&w=majority
+database=Tirocinio
+collection=tirocinio

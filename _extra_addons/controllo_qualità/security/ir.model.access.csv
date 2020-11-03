@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_controllo_qualità_prodotti_in_ingresso,controllo_qualità.controllo_qualità,model_prodotti_in_ingresso,base.group_user,1,1,1,1
+access_controllo_qualità_prodotti_in_ingresso,controllo_qualità.controllo_qualità,model_prodotti_in_ingresso,modulo_tirocinio.addetti,1,1,1,1
+access_controllo_qualità_prodotti_in_uscita,controllo_qualità.controllo_qualità,model_prodotti_in_uscita,base.group_user,1,1,1,1
+access_controllo_qualità_prodotti_in_uscita,controllo_qualità.controllo_qualità,model_prodotti_in_uscita,modulo_tirocinio.addetti,1,1,1,1

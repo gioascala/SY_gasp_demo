@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record model="ir.ui.view" id="edificio_tree">
+        <field name="name">Edificio.tree</field>
+        <field name="model">edificio</field>
+        <field name="arch" type="xml">
+            <tree string="Edificio tree">
+                <field name="id_edificio"/>
+                <field name="nome_edificio"/>
+                <field name="indirizzo_edificio"/>
+                <field name="syl4_immagine_edificio" height="50" widget="image"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record model="ir.ui.view" id="edificio_form">
+        <field name="name">Edificio.form</field>
+        <field name="model">edificio</field>
+        <field name="arch" type="xml">
+            <form string="Edificio Form">
+                <sheet>
+
+                    <!--                    <div class="oe_button_box" name="button_box">
+                                            <button name="letturaDB" type="object" class="oe_stat_button" icon="fa-archive" style="width:50px; margin-right:5px;border-color:black; border-radius:5px;padding:0px 5px 0px 0px !important; ">
+                                                Read
+                                            </button>
+                                            <button name="scritturaDB" type="object" class="oe_stat_button" icon="fa-archive" style="width: 50px;margin-right:5px;border-color:black;border-radius:5px;padding: 0px 43px 0px 0px !important;">
+                                                Upload
+                                            </button>
+                                            <button name="lettura_img" type="object"  class="oe_stat_button" style="width:50px; margin-right: 5px;border-color:black; border-radius:5px;padding:0px 5px 0px 0px !important; "  icon="fa-picture-o">
+                                                Lettura
+                                            </button>
+                                        </div>-->
+
+
+                    <group>
+                        <field name="id_edificio"/>
+                        <field name="nome_edificio"/>
+                        <field name="indirizzo_edificio"/>
+                        <field name="syl4_immagine_edificio"/>
+                        <field name="cartelladocuments"/>
+                    </group>
+
+                    <group>
+
+                        <field name="aree_di_parcheggio"/>
+                        <br></br>
+                        <field name="distribuzione_energia_elettrica"/>
+                        <br></br>
+                        <field name="fondazioni"/>
+                        <br></br>
+                        <field name="fornitura_e_distribuzione_acqua"/>
+                        <br></br>
+                        <field name="guardiola"/>
+                        <br></br>
+                        <field name="impianti_climatizzazione"/>
+                        <br></br>
+                        <field name="impianti_elettrici"/>
+                        <br></br>
+                        <field name="impianti_gas"/>
+                        <br></br>
+                        <field name="impianti_idrici_sanitari"/>
+                        <br></br>
+                        <field name="impianti_sicurezza"/>
+                        <br></br>
+                        <field name="impianti_sollevamento"/>
+
+                        <field name="impianti_telecomunicazioni"/>
+                        <br></br>
+                        <field name="interni"/>
+                        <br></br>
+                        <field name="segnaletica_e_cartelli_esterni"/>
+                        <br></br>
+                        <field name="servizi_generali"/>
+                        <br></br>
+                        <field name="strut_verticali"/>
+                        <br></br>
+                        <field name="strutture_orizzontali"/>
+                        <br></br>
+                        <field name="valorizzazione_area"/>
+                        <br></br>
+                        <field name="verde_esterno"/>
+                        <br></br>
+                        <field name="verso_esterno"/>
+                        <br></br>
+                        <field name="zona_pedonali_esterne"/>
+
+                    </group>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="edificio_kanban" model="ir.ui.view">
+        <field name="name">Edificio Kanban</field>
+        <field name="model">edificio</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="nome_edificio" />
+                <field name="id_edificio"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                            <field name="syl4_immagine_edificio" height="50" widget="image" class="oe_avatar"/>
+                                        </div>
+                                    <div class="col-md-5">
+                                        <strong><field name="nome_edificio"/></strong>
+                                        <field name="indirizzo_edificio"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--                        <div class="oe_kanban_card">-->
+                        <!--                            <a type="open">-->
+                        <!--                                <strong><field name="nome_edificio" /> </strong>-->
+                        <!--
+                                               </a>-->
+                        <!--                        </div>-->
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_edificio">
+        <field name="name">Edificio</field>
+        <field name="res_model">edificio</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Crea il tuo edificio
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="edificio_root" name="Gestione edifici"  sequence="3" />
+    <menuitem name="Edificio" id="edificio"  parent="edificio_root" action="action_edificio" sequence="0" />
+
+
+</odoo>

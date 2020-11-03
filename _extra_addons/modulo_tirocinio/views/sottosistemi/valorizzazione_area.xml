@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+   <record model="ir.ui.view" id="valorizzazione_area_tree">
+        <field name="name">valorizzazione_area.tree</field>
+        <field name="model">valorizzazione_area</field>
+        <field name="arch" type="xml">
+          <tree string="Valorizzazione area tree">
+            <field name="unità_tecnologica"/>
+            <field name="elemento_tecnico"/>
+            </tree>
+        </field>
+      </record>
+
+    <record model="ir.ui.view" id="valorizzazione_area_form">
+            <field name="name">valorizzazione_area.form</field>
+            <field name="model">valorizzazione_area</field>
+            <field name="arch" type="xml">
+                <form string="Valorizzazione area Form">
+                    <sheet>
+                        <group>
+                            <field name="unità_tecnologica"/>
+                        </group>
+                        <group>
+                            <field name="elemento_tecnico"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+</odoo>

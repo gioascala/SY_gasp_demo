@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+   <record model="ir.ui.view" id="impianti_gas_tree">
+        <field name="name">impianti_gas.tree</field>
+        <field name="model">impianti_gas</field>
+        <field name="arch" type="xml">
+          <tree string="Impianti gas tree">
+            <field name="unità_tecnologica"/>
+            <field name="elemento_tecnico"/>
+            </tree>
+        </field>
+      </record>
+
+    <record model="ir.ui.view" id="impianti_gas_form">
+            <field name="name">impianti_gas.form</field>
+            <field name="model">impianti_gas</field>
+            <field name="arch" type="xml">
+                <form string="Impianti gas Form">
+                    <sheet>
+                        <group>
+                            <field name="unità_tecnologica"/>
+                        </group>
+                        <group>
+                            <field name="elemento_tecnico"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+</odoo>

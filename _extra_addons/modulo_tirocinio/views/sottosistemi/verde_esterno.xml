@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+   <record model="ir.ui.view" id="verde_esterno_tree">
+        <field name="name">verde_esterno.tree</field>
+        <field name="model">verde_esterno</field>
+        <field name="arch" type="xml">
+          <tree string="verde_esterno tree">
+            <field name="unità_tecnologica"/>
+            <field name="elemento_tecnico"/>
+            </tree>
+        </field>
+      </record>
+
+    <record model="ir.ui.view" id="verde_esterno_form">
+            <field name="name">verde_esterno.form</field>
+            <field name="model">verde_esterno</field>
+            <field name="arch" type="xml">
+                <form string="Verde esterno Form">
+                    <sheet>
+                        <group>
+                            <field name="unità_tecnologica"/>
+                        </group>
+                        <group>
+                            <field name="elemento_tecnico"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+</odoo>

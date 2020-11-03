@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+   <record model="ir.ui.view" id="impianti_elettrici_tree">
+        <field name="name">impianti_elettrici.tree</field>
+        <field name="model">impianti_elettrici</field>
+        <field name="arch" type="xml">
+          <tree string="Impianti_elettrici tree">
+            <field name="unità_tecnologica"/>
+            <field name="elemento_tecnico"/>
+            </tree>
+        </field>
+      </record>
+
+    <record model="ir.ui.view" id="impianti_elettrici_form">
+            <field name="name">impianti_elettrici.form</field>
+            <field name="model">impianti_elettrici</field>
+            <field name="arch" type="xml">
+                <form string="Impianti_elettrici Form">
+                    <sheet>
+                        <group>
+                            <field name="unità_tecnologica"/>
+                        </group>
+                        <group>
+                            <field name="elemento_tecnico"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+</odoo>

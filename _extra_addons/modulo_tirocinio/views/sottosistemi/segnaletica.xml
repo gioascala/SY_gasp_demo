@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+   <record model="ir.ui.view" id="segnaletica_e_cartelli_esterni_tree">
+        <field name="name">segnaletica_e_cartelli_esterni.tree</field>
+        <field name="model">segnaletica_e_cartelli_esterni</field>
+        <field name="arch" type="xml">
+          <tree string="Segnaletica e cartelli esterni tree">
+            <field name="unità_tecnologica"/>
+            <field name="elemento_tecnico"/>
+            </tree>
+        </field>
+      </record>
+
+    <record model="ir.ui.view" id="segnaletica_e_cartelli_esterni_form">
+            <field name="name">segnaletica_e_cartelli_esterni.form</field>
+            <field name="model">segnaletica_e_cartelli_esterni</field>
+            <field name="arch" type="xml">
+                <form string="Segnaletica e cartelli esterni Form">
+                    <sheet>
+                        <group>
+                            <field name="unità_tecnologica"/>
+                        </group>
+                        <group>
+                            <field name="elemento_tecnico"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+</odoo>

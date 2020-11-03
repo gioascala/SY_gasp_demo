@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="addetto_custom_form_view" model="ir.ui.view">
+        <field name="name">addetto_custom.form</field>
+        <field name="model">addetto_custom</field>
+        <field name="arch" type="xml">
+            <form string="Addetto">
+                <sheet>
+                    <group>
+                        <field name="syl4_addetto"/>
+                        <field name="syl4_ore"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="addetto_custom_tree_view" model="ir.ui.view">
+        <field name="name">addetto_custom.tree</field>
+        <field name="model">addetto_custom</field>
+        <field name="arch" type="xml">
+            <tree string="Addetto">
+                <field name="syl4_addetto"/>
+                <field name="syl4_ore"/>
+            </tree>
+        </field>
+    </record>
+
+<!--    Addetto custom 2-->
+<!--    <record model="ir.ui.view" id="addetto_custom_2_tree_view">-->
+<!--        <field name="name">addetto_custom_2.tree</field>-->
+<!--        <field name="model">addetto_custom_2</field>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <tree delete="false" duplicate="false"  create="false" edit="false" default_order='create_date desc'>-->
+<!--                <field name="l4sm_data_calcolo" readonly = "1"/>-->
+<!--                <field name="l4sm_inizio" readonly = "1"/>-->
+<!--                <field name="l4sm_fine" readonly = "1"/>-->
+<!--                <field name="l4sm_tot_ore" force_save="1" readonly = "1"/>-->
+<!--            </tree>-->
+<!--        </field>-->
+<!--    </record>-->
+
+<!--    <record model="ir.ui.view" id="addetto_custom_2_form_view">-->
+<!--        <field name="name">addetto_custom_2.form</field>-->
+<!--        <field name="model">addetto_custom_2</field>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <form delete="false" duplicate="false"  create="false" edit="false" string="part_number associato alla Manutenzione">-->
+<!--                <sheet>-->
+<!--                    <group>-->
+<!--                        <field name="l4sm_data_calcolo"/>-->
+<!--                        <field name="l4sm_inizio"/>-->
+<!--                        <field name="l4sm_fine"/>-->
+<!--                        <field name="l4sm_tot_ore"/>-->
+<!--                    </group>-->
+<!--                </sheet>-->
+<!--            </form>-->
+<!--        </field>-->
+<!--    </record>-->
+</odoo>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- vista dei task -->
+        <record model="ir.ui.view" id="task_manutenzione_tree_view">
+            <field name="name">L4.task_manutenzione.tree</field>
+            <field name="model">syenmaint.l4_task_manutenzione</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="l4sm_codice"/>
+                    <field name="l4sm_descr"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- form view per la creazione/modifica dei task -->
+        <record model="ir.ui.view" id="task_manutenzione_form_view">
+            <field name="name">L4.task_manutenzione.form</field>
+            <field name="model">syenmaint.l4_task_manutenzione</field>
+            <field name="arch" type="xml">
+                <form string="Task Manutenzione Form">
+                    <sheet>
+                        <group>
+                            <field name="l4sm_codice"/>
+                            <field name="l4sm_descr"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- action che richiama la funzione del menu -->
+        <record id="l4_task_manutenzione_action" model="ir.actions.act_window">
+            <field name="name">Lista dei Task in Manutenzione</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">syenmaint.l4_task_manutenzione</field>
+            <field name="domain">[]</field> <!-- force empty -->
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                Crea un Task da gestire in manutenzione
+              </p><p>
+                I Task in manutenzione permettono di indicare una sequenza di attività da verificare
+                in fase di gestione degli eventi manutentivi legatio al Layer 4 della SYENMAINT PLATFORM.
+              </p>
+            </field>
+        </record>
+        <menuitem id="menu_l4_task_manutenzione"
+            action="l4_task_manutenzione_action"
+            parent="menu_l4_anagrafiche"
+            sequence="1"/>
+    </data>
+</odoo>

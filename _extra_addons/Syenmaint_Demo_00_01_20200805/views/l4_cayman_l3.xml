@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="sequence_l4cml3" model="ir.sequence">
+           <field name="name">L4 Cayman L3</field>
+           <field name="code">syenmaint.l4_cayman_l3</field>
+           <field name="active">TRUE</field>
+           <field name="prefix">CAY/PRD/</field>
+           <field name="padding">6</field>
+           <field name="number_next">1</field>
+           <field name="number_increment">1</field>
+        </record>
+        <!-- vista delle produzioni da e verso cayman -->
+        <record model="ir.ui.view" id="manutenzione_tree_view">
+            <field name="name">L4.cayman.l3.tree</field>
+            <field name="model">syenmaint.l4_cayman_l3</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="l4smcl3_codice"/>
+                    <field name="l4smcl3_name"/>
+                    <field name="l4smcl3_total"/>
+                    <field name="l4smcl3_batch"/>
+                    <field name="l4smcl3_length"/>
+                    <field name="l4smcl3_raw_material"/>
+                    <field name="l4smcl3_processing"/>
+                    <field name="create_date"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- action che richiama la funzione del menu -->
+        <record id="l4_cayman_l3_action" model="ir.actions.act_window">
+            <field name="name">Lista delle Produzione da e verso Cayman</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">syenmaint.l4_cayman_l3</field>
+            <field name="domain">[]</field> <!-- force empty -->
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                Crea una Produzione
+              </p><p>
+                Lista delle produzioni da e verso Cayman.
+              </p>
+            </field>
+        </record>
+        <menuitem id="menu_l4_cayman_l3"
+            action="l4_cayman_l3_action"
+            parent="menu_l4_cayman_l3_parent"
+            sequence="10"/>
+
+        <!-- opzione importare la lista di produzione selezionata -->
+        <record model="ir.actions.server" id="syenmaint_l4cml3_importa">
+            <field name="name">Importa Verso Cayman</field>
+            <field name="model_id" ref="model_syenmaint_l4_cayman_l3"/>
+            <field name ="binding_model_id" ref="model_syenmaint_l4_cayman_l3"/>
+            <field name="state">code</field>
+            <field name="code">
+                records.importaWireList()
+            </field>
+        </record>
+    </data>
+</odoo>

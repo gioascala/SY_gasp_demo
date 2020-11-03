@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+   <record model="ir.ui.view" id="rilevazioni_sensore_tree"> 
+        <field name="name">Rilevazioni_sensore.tree</field>
+        <field name="model">rilevazione_sensore</field>
+        <field name="arch" type="xml">
+          <tree string="Rilevazioni sensore tree" edit="false" create="false">
+            <field name="id_sensore"/>
+            <field name="tipo_sensore"/>
+            <field name="valore"/>
+            <field name="id_rilevazione"/>
+            </tree>
+        </field>
+      </record>
+
+        <record model="ir.ui.view" id="rilevazioni_sensore_form">
+            <field name="name">Rilevazioni_sensore.form</field>
+            <field name="model">rilevazione_sensore</field>
+            <field name="arch" type="xml">
+                <form string="Rilevazioni Sensore Form" edit="false" create="false">
+                    <sheet>
+                            <group>
+                            <group>
+                            <field name="id_sensore"/>
+                            <field name="tipo_sensore"/>
+                            </group>
+                            <group>
+                            <field name="valore"/>
+                            <field name="id_rilevazione"/>
+                            </group>
+                            </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+    <record model="ir.actions.act_window" id="action_rilevazione_sensore">
+            <field name="name">Rilevazioni Sensore</field>
+            <field name="res_model">rilevazione_sensore</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    <menuitem name="Rilevazioni Sensore" id="rilevazione_sensore"  sequence="5" parent="edificio_root"  action="action_rilevazione_sensore" />
+  
+</odoo>
